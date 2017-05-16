@@ -529,11 +529,12 @@ G4VPhysicalVolume* LYSimDetectorConstruction::ConstructDetector()
         ////////////////////////////////////////////
         //// Rod 5x1x1 cm^3
         ////////////////////////////////////////////
-        G4double rod_sizeXY = 10.0*mm;
+        G4double rod_sizeX  = 10.0*mm;
+	G4double rod_sizeY  =  4.0*mm;
         G4double rod_sizeZ  = 50.0*mm;
         G4Box* solidRod =
             new G4Box("RodBox",                                           //its name
-                      0.5*rod_sizeXY, 0.5*rod_sizeXY, 0.5*rod_sizeZ);     //its size
+                      0.5*rod_sizeX, 0.5*rod_sizeY, 0.5*rod_sizeZ);     //its size
         G4LogicalVolume* logicRod =
             new G4LogicalVolume(solidRod,   //its solid
                                 fEJ200,     //its material
@@ -587,7 +588,7 @@ G4VPhysicalVolume* LYSimDetectorConstruction::ConstructDetector()
         rotPhotocat->rotateX(pi/2*rad);
         rotPhotocat->invert();
 
-        G4ThreeVector transPhotocat(0.*cm, -0.6*rod_sizeXY, 0.*cm);
+        G4ThreeVector transPhotocat(0.*cm, -0.6*rod_sizeX, 0.*cm);
 
         G4VPhysicalVolume* physPhotocat = 
             new G4PVPlacement(rotPhotocat,
