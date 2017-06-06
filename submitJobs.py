@@ -8,7 +8,7 @@ import shutil
 
 JobTime = datetime.now()
 fTag = JobTime.strftime("%Y%m%d_%H%M%S")
-sTag = "run10"
+sTag = "DataCollection"
 dirname = "jobs/%s_%s"%(sTag,fTag)
 DetType = "1" #rod
 logFile = "0606.log"
@@ -18,7 +18,7 @@ try:
 except:
     pass
 
-ProdTag = "run10_20170606"
+ProdTag = "Run4_20170606"
 OutDir  = "/home/kahn/PhysHonr268n/CMSSW_5_3_30/Research/G4/honrgeant/UMDSRDGEStudy-build/Absdata"
 WorkDir = "/home/kahn/PhysHonr268n/CMSSW_5_3_30/Research/G4/honrgeant/UMDSRDGEStudy-build/"
 
@@ -58,9 +58,14 @@ Queue 1
 ######################%(WORKDIR)s %(INPUT)s %(FILENAME)s %(DETTYPE)s###################
 # %(OUTDIR)s/%(MYPREFIX)s/
 
-Abs = 199
-counter = 1  
-for counter in range (1,10):
+Abs = 94
+counter = 1
+step = 0  
+while (step < 2):
+    #because I use counter to name files, it should always go up by one
+    counter = counter + 1
+    #use step instead to change absorption length values
+    step = step + 0.1   
     #Abs = Abs + 1
     #counter = counter + 1
     #Copy photontet to a new dummy file
@@ -71,7 +76,7 @@ for counter in range (1,10):
         filedata = file.read()
 
         # Replace original abslength with abslength + counter 
-    AbsPlusSome = Abs + counter
+    AbsPlusSome = Abs + step
     j = str(AbsPlusSome)
     i = str(Abs)
     filedata = filedata.replace(i, j)
@@ -110,8 +115,8 @@ for counter in range (1,10):
     print "\n"
     print "Histos output dir: %s/%s"%(OutDir,ProdTag)
 
-#########################
-### in separate script###
+
+
 #num = counter
 #counter2 = 0
 # Now delete the dummy files
