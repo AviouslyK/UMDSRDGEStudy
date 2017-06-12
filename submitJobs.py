@@ -66,8 +66,7 @@ while (step < 2):
     counter = counter + 1
     #use step instead to change absorption length values
     step = step + 0.1   
-    #Abs = Abs + 1
-    #counter = counter + 1
+    
     #Copy photontet to a new dummy file
     shutil.copy2('photontest.mac', 'photest' '%s' '.mac' % counter)
     
@@ -114,12 +113,3 @@ while (step < 2):
         
     print "\n"
     print "Histos output dir: %s/%s"%(OutDir,ProdTag)
-
-
-
-#num = counter
-#counter2 = 0
-# Now delete the dummy files
-#while (counter2 < num):
-#    counter2 = counter2 + 1
-#    os.remove('photest' '%s' '.mac' % counter2)
