@@ -1490,26 +1490,60 @@ void LYSimDetectorConstruction::DefineMaterials()
 
         G4cout << fSCSN81 << G4endl;
     }
-
-    //EJ200
+ //EJ200
     {
         //fEJ200 = nist->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE"); // H:8.5%; C: 91.5%; density = 1.032 g/cm^3
         fEJ200 = new G4Material("EJ200", 1.023*g/cm3, 2, kStateSolid);
         fEJ200->AddElement(C, 91.53*perCent);
         fEJ200->AddElement(H, 8.47*perCent);
-
-        const G4int nEntries = 2;
+	
+	
+        const G4int nEntries = 32;
+        G4double PhotonEnergy[nEntries] = 
+      {
+        3.5424*eV, 3.4925*eV, 3.4440*eV, 3.3968*eV, 3.3509*eV, 3.3062*eV, 3.2627*eV,
+	3.2204*eV, 3.1791*eV, 3.1548*eV, 3.1388*eV, 3.1309*eV, 3.1230*eV, 3.1152*eV, 
+	3.1074*eV, 3.0996*eV, 3.0919*eV, 3.0842*eV, 3.0765*eV, 3.0689*eV, 3.0613*eV, 
+	3.0538*eV, 3.0463*eV, 3.0388*eV, 3.0314*eV, 3.0240*eV, 3.0166*eV, 3.0093*eV, 
+	3.0020*eV, 2.9948*eV, 2.9876*eV, 2.9520*eV
+      };
+	 G4double RefractiveIndex[nEntries] = 
+	  {
+	    1.58, 1.58, 1.58, 1.58, 1.58, 1.58,
+	    1.58, 1.58, 1.58, 1.58, 1.58, 1.58,
+	    1.58, 1.58, 1.58, 1.58, 1.58, 1.58,
+	    1.58, 1.58, 1.58, 1.58, 1.58, 1.58,
+	    1.58, 1.58, 1.58, 1.58, 1.58, 1.58,
+	    1.58, 1.58
+	  };
+	
+	 /*
+	const G4int nEntries = 2;
         G4double PhotonEnergy[nEntries] = {1.0*eV, 6.0*eV};
         G4double RefractiveIndex[nEntries] = {1.58, 1.58};
 
+	 */
         G4double baseAbsLength = GetTileAbsLength();
         G4double baseMu = 1 / baseAbsLength;
         G4double inducedMu = GetInducedMuTile();
         G4double mu = baseMu + inducedMu;
         G4double absLength = 1 / mu;
+	
+	G4cout << "[LYSim] [EJ200] Tile abs length set to " << G4BestUnit(absLength, "Length") << G4endl;
+  
+	G4double AbsLength[nEntries] = 
+      {
+	1.15330*cm, 1.16570*cm, 1.16667*cm, 1.15500*cm, 1.16222*cm, 1.14870*cm, 1.1550*cm, 
+	1.15750*cm, 1.16429*cm, 1.2094*cm, 1.3714*cm, 1.155313*cm, 1.79375*cm, 2.11429*cm,
+	2.47143*cm, 3.04286*cm, 3.82857*cm, 4.79166*cm, 6.1842*cm, 8.00000*cm, 10.5526*cm, 
+	14.0789*cm, 19.25*cm, 26.4*cm, 36.533*cm, 50.400*cm, 70.000*cm, 99.0*cm, 137.0*cm, 
+	197.9998*cm, 280.0*cm
+      };
+	
+	/*
+	G4double AbsLength[nEntries] = {absLength, absLength};
+        */
 
-        G4cout << "[LYSim] [EJ200] Tile abs length set to " << G4BestUnit(absLength, "Length") << G4endl;
-        G4double AbsLength[nEntries] = {absLength, absLength};
         // Add entries into properties table
         G4MaterialPropertiesTable* MPTEJ200 = new G4MaterialPropertiesTable();
         MPTEJ200->AddProperty("RINDEX",PhotonEnergy,RefractiveIndex,nEntries);
@@ -1569,6 +1603,7 @@ void LYSimDetectorConstruction::DefineMaterials()
 }
 
 
+   
 void LYSimDetectorConstruction::DefineSurfaces()
 {
     {
