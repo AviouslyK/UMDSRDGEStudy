@@ -4,6 +4,7 @@ import shlex, subprocess
 from datetime import datetime, date, time
 from time import sleep
 import shutil
+mport numpy as np   
 #sys.path.append(os.path.abspath(os.path.curdir))
 
 JobTime = datetime.now()
@@ -58,35 +59,48 @@ Queue 1
 ######################%(WORKDIR)s %(INPUT)s %(FILENAME)s %(DETTYPE)s###################
 # %(OUTDIR)s/%(MYPREFIX)s/
 
-Abs = 94
-counter = 1
-step = 0  
-while (step < 2):
-    #because I use counter to name files, it should always go up by one
-    counter = counter + 1
-    #use step instead to change absorption length values
-    step = step + 0.1   
+#starting wavelenght
+#Initial = 3.0538
+#array that contains the different wavelengths being tested                          
+#Arr = [3.0538, 3.0463, 3.0388, 3.0314, 3.024, 3.0166, 3.0093, 3.002, 2.9948, 2.9876]
+#3.5424, 3.4925, 3.444, 3.3968, 3.3509, 3.3062, 3.2627, 3.2204, 3.1791, 3.1388]
+#,]
+#3.1309, 3.123, 3.1152, 3.1074, 3.0996, 3.0919, 3.0842, 3.0765, 3.0689, 3.0613
+#for q in range(0,len(Arr)):
+
+ #initial absorption length
+AbsIN = 1.48
+
+#final absorption length  
+AbsFI = 1.59 
+
+#total number of jobs being submitted 
+jobNUM = 11
+
+#array that contains the different abs lengths being tested                          
+Arr = np.linspace(AbsIN,AbsFI,num=jobNUM)
+
+for q in range(len(Arr)):
     
-    #Copy photontet to a new dummy file
-    shutil.copy2('photontest.mac', 'photest' '%s' '.mac' % counter)
-    
-    # Read in the file
-    with open('photest' '%s' '.mac' % counter, 'r') as file :
+    # Creating new file                                                              
+    shutil.copy2('photontest.mac', 'photest' '%s' '.mac' % q)
+
+    # Reading in the file                                                            
+    with open('photest' '%s' '.mac' % q, 'r') as file :
         filedata = file.read()
 
-        # Replace original abslength with abslength + counter 
-    AbsPlusSome = Abs + step
-    j = str(AbsPlusSome)
-    i = str(Abs)
+    # Replacing the target string                                                    
+    j = str(Arr[q])
+    #i = str(Initial)
+    i = str(AbsIN)
     filedata = filedata.replace(i, j)
 
-    # Write the file out again
-    with open('photest' '%s' '.mac' % counter, 'w') as file:
+    # Writing out the new file                                                       
+    with open('photest' '%s' '.mac' % q, 'w') as file:
         file.write(filedata)
 
-    # Define new infile
-    InFile = 'photest' '%s' '.mac' % counter
-     
+    # Defining the infile                                                            
+    InFile = 'photest' '%s' '.mac' % q 
     
     kw = {}
 
@@ -105,7 +119,7 @@ while (step < 2):
 
     condorcmd = "condor_submit %s/condor_jobs_%s_G4Sim.jdl"%(dirname,sTag)
     print 'condorcmd: ', condorcmd
-    print ('Executing condorcmd %s' % str(counter))
+    print ('Executing condorcmd %s' % str(q))
 
     p=subprocess.Popen(condorcmd, shell=True)
     p.wait()
@@ -113,3 +127,4 @@ while (step < 2):
         
     print "\n"
     print "Histos output dir: %s/%s"%(OutDir,ProdTag)
+
