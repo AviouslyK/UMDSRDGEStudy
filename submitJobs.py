@@ -4,7 +4,7 @@ import shlex, subprocess
 from datetime import datetime, date, time
 from time import sleep
 import shutil
-mport numpy as np   
+import numpy as np   
 #sys.path.append(os.path.abspath(os.path.curdir))
 
 JobTime = datetime.now()
