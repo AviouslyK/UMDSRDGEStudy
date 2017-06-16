@@ -68,7 +68,8 @@ Queue 1
 #3.1309, 3.123, 3.1152, 3.1074, 3.0996, 3.0919, 3.0842, 3.0765, 3.0689, 3.0613
 #for q in range(0,len(Arr)):
 
- #initial absorption length
+ #initial absorption length NOTE: if using 1 or 10 make sure to use 10.0 or 1.0 as there are other instances of the strings
+ # 1 and 10 in the file
 AbsIN = 1.48
 
 #final absorption length  
