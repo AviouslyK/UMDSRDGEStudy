@@ -5,7 +5,7 @@ RUN_DIR=$1
 INPUT_NAME=$2
 ANALYSIS_FILE_NAME=$3
 DET_TYPE=$4
-LOG_FILE=$5
+#LOG_FILE=$5
 
 echo $RUN_DIR
 echo $INPUT_NAME
@@ -42,4 +42,4 @@ cd ${G4BASE}
 #cd $RUN_DIR
 cd /home/kahn/PhysHonr268n/CMSSW_5_3_30/Research/G4/honrgeant/UMDSRDGEStudy-build/
 
-./LYSim ${DET_TYPE} ${INPUT_NAME} ${ANALYSIS_FILE_NAME} >& ${LOG_FILE} 
+./LYSim ${DET_TYPE} ${INPUT_NAME} ${ANALYSIS_FILE_NAME} >& /dev/null
