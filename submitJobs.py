@@ -52,12 +52,12 @@ Requirements = TARGET.FileSystemDomain == "privnet"
 Output = %(OUTDIR)s/%(MYPREFIX)s/logs/%(FILENAME)s_sce_$(cluster)_$(process).stdout
 Error  = %(OUTDIR)s/%(MYPREFIX)s/logs/%(FILENAME)s_sce_$(cluster)_$(process).stderr
 Log    = %(OUTDIR)s/%(MYPREFIX)s/logs/%(FILENAME)s_sce_$(cluster)_$(process).condor
-Arguments = %(WORKDIR)s %(INPUT)s %(FILENAME)s %(DETTYPE)s %(LOGFILE)s
+Arguments = %(WORKDIR)s %(INPUT)s %(FILENAME)s %(DETTYPE)s 
 Queue 1
  
 """
-######################%(WORKDIR)s %(INPUT)s %(FILENAME)s %(DETTYPE)s###################
-# %(OUTDIR)s/%(MYPREFIX)s/
+######################%(LOGFILE)s was removed ###################
+
 
 #starting wavelenght
 #Initial = 3.0538
