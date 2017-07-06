@@ -9,17 +9,17 @@ import numpy as np
 
 JobTime = datetime.now()
 fTag = JobTime.strftime("%Y%m%d_%H%M%S")
-sTag = "DataCollection"
+sTag = "10mmDataCollection"
 dirname = "jobs/%s_%s"%(sTag,fTag)
 DetType = "1" #rod
-logFile = "0606.log"
+logFile = "0629.log"
 
 try:
     os.makedirs(dirname)
 except:
     pass
 
-ProdTag = "Run4_20170606"
+ProdTag = "Run1_20170706"
 OutDir  = "/home/kahn/PhysHonr268n/CMSSW_5_3_30/Research/G4/honrgeant/UMDSRDGEStudy-build/Absdata"
 WorkDir = "/home/kahn/PhysHonr268n/CMSSW_5_3_30/Research/G4/honrgeant/UMDSRDGEStudy-build/"
 
@@ -56,27 +56,40 @@ Arguments = %(WORKDIR)s %(INPUT)s %(FILENAME)s %(DETTYPE)s
 Queue 1
  
 """
-######################%(LOGFILE)s was removed ###################
+######################    %(LOGFILE)s  ###################
+# %(OUTDIR)s/%(MYPREFIX)s/
 
+#starting and ending wavelenght
+#Initial = 2.1
 
-#starting wavelenght
-#Initial = 3.0538
+#Final = 3.6
+
+#waveNUM = 35
 #array that contains the different wavelengths being tested                          
-#Arr = [3.0538, 3.0463, 3.0388, 3.0314, 3.024, 3.0166, 3.0093, 3.002, 2.9948, 2.9876]
-#3.5424, 3.4925, 3.444, 3.3968, 3.3509, 3.3062, 3.2627, 3.2204, 3.1791, 3.1388]
-#,]
-#3.1309, 3.123, 3.1152, 3.1074, 3.0996, 3.0919, 3.0842, 3.0765, 3.0689, 3.0613
+#Arr = np.linspace(Initial,Final,num=waveNUM)
+
+#Arr = [2.9590, 2.9520, 2.9450, 2.9380, 2.9311, 2.9242, 2.9173, 2.8833, 2.8502, 2.8178, 2.7862, 
+#       2.7552, 2.7249, 2.6953, 2.6663, 2.6380, 2.6102, 2.5830, 2.5564, 2.5303, 2.5047, 2.4797, 
+#       2.4551, 2.4311, 2.4075, 2.3843, 2.3616, 2.3393, 2.3175, 2.2960, 2.2749, 2.2543] 
+
+
+#3.5424, 3.4925, 3.4440, 3.3968, 3.3509, 3.3062, 3.2627, 3.2204, 3.2037, 3.1955, 3.1791, 
+ #      3.1709, 3.1629, 3.1548, 3.1468, 3.1388, 3.1309, 3.1230, 3.1152, 3.1074, 3.0996, 3.0919, 
+  #     3.0842, 3.0765, 3.0689, 3.0613, 3.0538, 3.0463, 3.0388, 3.0314, 3.0240, 3.0166, 3.0093, 
+   #    3.0020, 2.9948, 2.9876, 2.9804, 2.9732, 2.9661
+
+
+
 #for q in range(0,len(Arr)):
 
- #initial absorption length NOTE: if using 1 or 10 make sure to use 10.0 or 1.0 as there are other instances of the strings
- # 1 and 10 in the file
-AbsIN = 1.48
+#initial absorption length
+AbsIN = 4.0
 
-#final absorption length  
-AbsFI = 1.59 
+#final absorption length
+AbsFI = 6.0
 
 #total number of jobs being submitted 
-jobNUM = 11
+jobNUM = 175
 
 #array that contains the different abs lengths being tested                          
 Arr = np.linspace(AbsIN,AbsFI,num=jobNUM)
@@ -119,7 +132,7 @@ for q in range(len(Arr)):
     f.close()
 
     condorcmd = "condor_submit %s/condor_jobs_%s_G4Sim.jdl"%(dirname,sTag)
-    print 'condorcmd: ', condorcmd
+    #print 'condorcmd: ', condorcmd
     print ('Executing condorcmd %s' % str(q))
 
     p=subprocess.Popen(condorcmd, shell=True)
@@ -127,5 +140,4 @@ for q in range(len(Arr)):
    
         
     print "\n"
-    print "Histos output dir: %s/%s"%(OutDir,ProdTag)
-
+    #print "Histos output dir: %s/%s"%(OutDir,ProdTag)
