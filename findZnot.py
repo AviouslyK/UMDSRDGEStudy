@@ -1,23 +1,56 @@
+import numpy
 #program to calculate Znot given values for Mu Effective
 
+##############################################################################################
+########################## Without scaling factor: ###########################################
+######################### Does NOT consider base mu ##########################################
+##############################################################################################
+                                                                                          ####
+#array that contains the different MuE1 values based on each Measurement (4 mm)           ####
+#the first value is from the average of transmission values from data                     ####
+#the second and third values are for each of the individual transmission values from data ####
+Arr1 = [0.019732, 0.0197657, 0.0196875]                                                   ####   
+                                                                                          ####
+#array that contains the different MuE2 values based on each Measurement (6 mm)           ####
+Arr2 = [0.0174, 0.0172835, 0.0175252]                                                     ####
+                                                                                          ####
+#array that contains the different MuE3 values based on each Measurement (8 mm)           ####
+Arr3 = [0.015745, 0.0157487, 0.0157424]                                                   ####
+                                                                                          ####  
+##############################################################################################
+##############################################################################################
 
-#array that contains the different MuE1 values based on each Measurement (4 mm)
-#the first value is from the average of transmission values from data
-#the second and third values are for each of the individual transmission values from data
-Arr1 = [0.019732, 0.0197657, 0.0196875]
 
-#array that contains the different MuE2 values based on each Measurement (6 mm)
-Arr2 = [0.0174, 0.0172835, 0.0175252]
-
-#array that contains the different MuE3 values based on each Measurement (8 mm)
-Arr3 = [0.015745, 0.0157487, 0.0157424]
- 
-counter = 1;
-for i in range(len(Arr1)):
-    for j in range(len(Arr2)):
-        for k in range(len(Arr3)):
-            Znot = (-2*Arr1[i]+12*Arr2[j]-12*Arr3[k])/(3*Arr2[j]-4*Arr3[k])
+##############################################################################################
+########################## WITH scaling factor: ##############################################
+##############################################################################################
+                                                                                          ####
+#array that contains the different MuE1 values based on each Measurement (4 mm)           ####
+#the first value is from the average of transmission values from data                     ####
+#the second and third values are for each of the individual transmission values from data ####
+Arr4 = [0.0185106, 0.0185529, 0.0184707]                                                  ####   
+                                                                                          ####
+#array that contains the different MuE2 values based on each Measurement (6 mm)           ####
+Arr5 = [0.016123, 0.0159874, 0.0162499]                                                   ####
+                                                                                          ####
+#array that contains the different MuE3 values based on each Measurement (8 mm)           ####
+Arr6 = [0.016016, 0.0160196, 0.0160147]                                                   ####
+                                                                                          ####  
+##############################################################################################
+##############################################################################################
+Znots = [None]*27;
+counter = 0;
+for i in range(len(Arr4)):
+    for j in range(len(Arr5)):
+        for k in range(len(Arr6)):
+            Znot = (-2*Arr4[i]+12*Arr5[j]-12*Arr6[k])/(3*Arr5[j]-4*Arr6[k])
+            Znots[counter] = Znot
             print("\n\nFor MuE values of:")
-            print Arr1[i], Arr2[j], Arr3[k];
-            print ("\nZnot is %s" % str(Znot))
+            print Arr4[i], Arr5[j], Arr6[k];
+            print ("Znot is %s" % str(Znot))
             counter = counter + 1;
+
+print ("\n\n");
+print ("The average Znot is ");
+print (sum(Znots)/len(Znots));
+print ("The std is", numpy.std(Znots));
