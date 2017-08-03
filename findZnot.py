@@ -39,18 +39,28 @@ Arr6 = [0.016016, 0.0160196, 0.0160147]                                         
 ##############################################################################################
 ##############################################################################################
 Znots = [None]*27;
+Mu1s  = [None]*27;
+Mu2s  = [None]*27
 counter = 0;
 for i in range(len(Arr4)):
     for j in range(len(Arr5)):
         for k in range(len(Arr6)):
-            Znot = (-2*Arr4[i]+12*Arr5[j]-12*Arr6[k])/(3*Arr5[j]-4*Arr6[k])
-            Znots[counter] = Znot
-            print("\n\nFor MuE values of:")
-            print Arr4[i], Arr5[j], Arr6[k];
-            print ("Znot is %s" % str(Znot))
+            Znot = (-2*Arr4[i]+12*Arr5[j]-12*Arr6[k])/(3*Arr5[j]-4*Arr6[k]);
+            Znots[counter] = Znot;
+            Mu1 = 2*Arr4[i]/Znot;
+            Mu1s[counter] = Mu1;
+            Mu2 = (Arr5[j] - Znot*Mu1/3)/(1-(Znot/6));
+            Mu2s[counter] = Mu2;
+            #print("\n\nFor MuE values of:")
+            #print Arr4[i], Arr5[j], Arr6[k];
+            #print ("Znot is %s" % str(Znot))
             counter = counter + 1;
 
+
+Znot = sum(Znots)/len(Znots);
+Mu1  = sum(Mu1s)/len(Mu1s);
+Mu2  = sum(Mu2s)/len(Mu2s);
 print ("\n\n");
-print ("The average Znot is ");
-print (sum(Znots)/len(Znots));
-print ("The std is", numpy.std(Znots));
+print "Znot is ", Znot, " plus or minus ", numpy.std(Znots);
+print "Mu1 is ", Mu1, " plus or minus ", numpy.std(Mu1s);
+print "Mu2 is ", Mu2, " plus or minus ", numpy.std(Mu2s);
