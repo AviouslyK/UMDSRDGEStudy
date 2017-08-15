@@ -6,7 +6,7 @@ import numpy
 ######################### Does NOT consider base mu ##########################################
 ##############################################################################################
                                                                                           ####
-#array that contains the different MuE1 values based on each Measurement (4 mm)           ####
+#array that contains the different MuE values based on each Measurement (4 mm)           ####
 #the first value is from the average of transmission values from data                     ####
 #the second and third values are for each of the individual transmission values from data ####
 Arr1 = [0.019732, 0.0197657, 0.0196875]                                                   ####   
@@ -25,41 +25,60 @@ Arr3 = [0.015745, 0.0157487, 0.0157424]                                         
 ########################## WITH scaling factor: ##############################################
 ##############################################################################################
                                                                                           ####
-#array that contains the different MuE1 values based on each Measurement (4 mm)           ####
+#array that contains the different MuE values based on each Measurement (4 mm)            ####
 #the first value is from the average of transmission values from data                     ####
 #the second and third values are for each of the individual transmission values from data ####
-Arr4 = [0.0185106, 0.0185529, 0.0184707]                                                  ####   
+#MuE4
+MuEffective4 = [0.0185106, 0.0185529, 0.0184707]                                                  ####   
                                                                                           ####
 #array that contains the different MuE2 values based on each Measurement (6 mm)           ####
-Arr5 = [0.016123, 0.0159874, 0.0162499]                                                   ####
+#MuE3
+MuEffective3 = [0.016123, 0.0159874, 0.0162499]                                                   ####
                                                                                           ####
 #array that contains the different MuE3 values based on each Measurement (8 mm)           ####
-Arr6 = [0.016016, 0.0160196, 0.0160147]                                                   ####
+#MuE2 BAD DATA
+#Arr6 = [0.016016, 0.0160196, 0.0160147]                                                  ####
+#array that contains the different MuE3 values based on each Measurement (8 mm)           ####
+#MuE1
+
+MuEffective1 = [0.01234, 0.01215, 0.01254]                                                        ####
                                                                                           ####  
 ##############################################################################################
 ##############################################################################################
+
+t1    = 10
+t2    = 8
+t3    = 6
+t4    = 4
 Znots = [None]*27;
 Mu1s  = [None]*27;
 Mu2s  = [None]*27;
+MuE2s = [None]*27;
 counter = 0;
-for i in range(len(Arr4)):
-    for j in range(len(Arr5)):
-        for k in range(len(Arr6)):
-            Znot = (-2*Arr4[i]+12*Arr5[j]-12*Arr6[k])/(3*Arr5[j]-4*Arr6[k]);
-            Znots[counter] = Znot;
-            Mu1 = 2*Arr4[i]/Znot;
+for i in range(len(MuEffective4)):
+    for j in range(len(MuEffective3)):
+        for k in range(len(MuEffective1)):
+            Mu1 = MuEffective4[i];
             Mu1s[counter] = Mu1;
-            Mu2 = (Arr5[j] - Znot*Mu1/3)/(1-(Znot/6));
+
+            Mu2 = (MuEffective3[j]*t3-MuEffective1[k]*t1)/(t3-t1);
             Mu2s[counter] = Mu2;
-            #print("\n\nFor MuE values of:")
-            #print Arr4[i], Arr5[j], Arr6[k];
-            #print ("Znot is %s" % str(Znot))
+            
+
+            Znot = 0.5*t3*(MuEffective3[j]-Mu2)/(MuEffective4[i]-Mu2);
+            Znots[counter] = Znot; 
+
+            MuE2 = Mu2 + (2*Znot/t2*(Mu1-Mu2));
+            MuE2s[counter] = MuE2;
+
+            print MuE2, "\n";
             counter = counter + 1;
 
 
 Znot = sum(Znots)/len(Znots);
 Mu1  = sum(Mu1s)/len(Mu1s);
 Mu2  = sum(Mu2s)/len(Mu2s);
+MuE2 = sum(MuE2s)/len(MuE2s);
 print ("\n\n");
 print "Znot is ", Znot, " plus or minus ", numpy.std(Znots);
 print "Mu1 is ", Mu1, " plus or minus ", numpy.std(Mu1s);
