@@ -38,7 +38,7 @@ MuEffective3 = [0.016123, 0.0159874, 0.0162499]                                 
 #array that contains the different MuE3 values based on each Measurement (8 mm)           ####
 #MuE2 BAD DATA
 #Arr6 = [0.016016, 0.0160196, 0.0160147]                                                  ####
-#array that contains the different MuE3 values based on each Measurement (8 mm)           ####
+#array that contains the different MuE3 values based on each Measurement (10 mm)           ####
 #MuE1
 
 MuEffective1 = [0.01234, 0.01215, 0.01254]                                                        ####
