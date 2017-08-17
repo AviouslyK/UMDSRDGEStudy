@@ -4,27 +4,6 @@ import shutil
 import fileinput
 inFile = sys.argv[1]
 
-#reading in messy data
-#with open(inFile, 'r') as file :
-#        filedata = file.read()
-
-# Creating new file                                                              
-#shutil.copy2(inFile, 'CleanSimData.txt')
-
-# Reading in the file                                                            
-#with open('CleanSimData.txt','r') as file :
-#    filedata = file.read()
-
-# Removing messy text                                                
-#mess  = "#Mu_tile [cm^-1]Mu_fiber [cm^-1]Efficiency"
-#filedata = filedata.replace(mess, "");
-
-# Writing out the new file                                                       
-#with open('CleanSimData.txt', 'w') as file:
-#    file.write(filedata)
-
-
-###############################################3
 
 
 outfile = "cleaned_file.txt"
