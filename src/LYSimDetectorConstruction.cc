@@ -440,10 +440,10 @@ G4VPhysicalVolume* LYSimDetectorConstruction::ConstructDetector()
         G4Tubs* solidPhotocat =
             new G4Tubs("Photocathode",
                        0.,
-                       0.5*Photocat_sizeXY,
-                       0.5*Photocat_thickness,
+                       5*Photocat_sizeXY,
+                       5*Photocat_thickness,
                        0., 
-                       2.*pi);
+                       5.*pi);
 
         G4LogicalVolume* logicPhotocat =
             new G4LogicalVolume(solidPhotocat,
@@ -530,7 +530,7 @@ G4VPhysicalVolume* LYSimDetectorConstruction::ConstructDetector()
         //// Rod 5x1x1 cm^3
         ////////////////////////////////////////////
         G4double rod_sizeX  = 10.0*mm;
-	G4double rod_sizeY  =  4.0*mm;
+	G4double rod_sizeY  = 10.0*mm;
         G4double rod_sizeZ  = 50.0*mm;
         G4Box* solidRod =
             new G4Box("RodBox",                                           //its name
@@ -1490,59 +1490,117 @@ void LYSimDetectorConstruction::DefineMaterials()
 
         G4cout << fSCSN81 << G4endl;
     }
- //EJ200
+
+
+    //EJ200
     {
         //fEJ200 = nist->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE"); // H:8.5%; C: 91.5%; density = 1.032 g/cm^3
         fEJ200 = new G4Material("EJ200", 1.023*g/cm3, 2, kStateSolid);
         fEJ200->AddElement(C, 91.53*perCent);
         fEJ200->AddElement(H, 8.47*perCent);
+		
 	
-	
-        const G4int nEntries = 32;
-        G4double PhotonEnergy[nEntries] = 
-      {
-        3.5424*eV, 3.4925*eV, 3.4440*eV, 3.3968*eV, 3.3509*eV, 3.3062*eV, 3.2627*eV,
-	3.2204*eV, 3.1791*eV, 3.1548*eV, 3.1388*eV, 3.1309*eV, 3.1230*eV, 3.1152*eV, 
-	3.1074*eV, 3.0996*eV, 3.0919*eV, 3.0842*eV, 3.0765*eV, 3.0689*eV, 3.0613*eV, 
-	3.0538*eV, 3.0463*eV, 3.0388*eV, 3.0314*eV, 3.0240*eV, 3.0166*eV, 3.0093*eV, 
-	3.0020*eV, 2.9948*eV, 2.9876*eV, 2.9520*eV
-      };
-	 G4double RefractiveIndex[nEntries] = 
+			
+        const G4int nEntries = 25;
+        G4double PhotonEnergy[nEntries] = 	  
 	  {
-	    1.58, 1.58, 1.58, 1.58, 1.58, 1.58,
-	    1.58, 1.58, 1.58, 1.58, 1.58, 1.58,
-	    1.58, 1.58, 1.58, 1.58, 1.58, 1.58,
-	    1.58, 1.58, 1.58, 1.58, 1.58, 1.58,
-	    1.58, 1.58, 1.58, 1.58, 1.58, 1.58,
-	    1.58, 1.58
+	  3.542*eV, 3.493*eV, 3.444*eV, 3.397*eV, 3.351*eV, 3.306*eV, 3.263*eV, 
+	  3.220*eV, 3.179*eV, 3.139*eV, 3.100*eV, 3.061*eV, 3.024*eV, 2.988*eV, 
+	  2.952*eV, 2.917*eV, 2.883*eV, 2.850*eV, 2.818*eV, 2.786*eV, 2.755*eV, 
+	  2.725*eV, 2.695*eV, 2.666*eV, 2.638*eV 
 	  };
 	
-	 /*
+	/*	  
+	  	3.542*eV, 3.493*eV, 3.444*eV, 3.397*eV, 3.351*eV, 3.306*eV, 3.263*eV, 3.220*eV, 3.204*eV, 3.195*eV, 
+	3.187*eV, 3.179*eV, 3.171*eV, 3.163*eV, 3.155*eV, 3.147*eV, 3.139*eV, 3.131*eV, 3.123*eV, 3.115*eV, 
+	3.107*eV, 3.100*eV, 3.092*eV, 3.084*eV, 3.077*eV, 3.069*eV, 3.061*eV, 3.046*eV, 3.024*eV, 2.988*eV, 
+	2.952*eV, 2.917*eV, 2.883*eV, 2.850*eV, 2.818*eV, 2.786*eV, 2.755*eV, 2.725*eV, 2.695*eV, 2.666*eV, 
+	2.638*eV, 2.610*eV, 2.583*eV, 2.556*eV, 2.530*eV, 2.505*eV, 2.480*eV, 2.455*eV, 2.431*eV, 2.407*eV, 
+	2.384*eV, 2.362*eV, 2.339*eV, 2.317*eV, 2.296*eV, 2.275*eV, 2.254*eV
+	*/	
+	
+	
+	 G4double RefractiveIndex[nEntries] = 
+	  {
+	    1.58, 1.58, 1.58, 1.58, 1.58, 1.58, 1.58, 
+	    1.58, 1.58, 1.58, 1.58, 1.58, 1.58, 1.58,
+	    1.58, 1.58, 1.58, 1.58, 1.58, 1.58, 1.58,
+	    1.58, 1.58, 1.58, 1.58 
+	    };
+	
+	
+		/* 	     
 	const G4int nEntries = 2;
         G4double PhotonEnergy[nEntries] = {1.0*eV, 6.0*eV};
         G4double RefractiveIndex[nEntries] = {1.58, 1.58};
-
-	 */
+	 
+		*/
         G4double baseAbsLength = GetTileAbsLength();
         G4double baseMu = 1 / baseAbsLength;
         G4double inducedMu = GetInducedMuTile();
-        G4double mu = baseMu + inducedMu;
+	
+	//G4double inducedAbsLength = 1/inducedMu;
+        
+	G4double mu = baseMu + inducedMu;
         G4double absLength = 1 / mu;
 	
-	G4cout << "[LYSim] [EJ200] Tile abs length set to " << G4BestUnit(absLength, "Length") << G4endl;
+	G4cout << "[LYSim] [EJ200] Tile abs length set to " << absLength << G4endl;
+	//G4cout << "!![LYSim] [EJ200] baseAbsLength: " << baseAbsLength << "Induced AbsLength: " << inducedAbsLength  << G4endl;
+	//G4cout << "!![LYSim] [EJ200] inducedMu: " << inducedMu << "Base Mu: " << baseMu  << G4endl;
+
+
+	///////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////// None of these account for Base Mu ///////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////
+
+		G4double AbsLength[nEntries] = 
+	 { 
+	   1.439800*mm, 1.427200*mm, 1.435000*mm, 1.438500*mm, 1.432100*mm, 1.427900*mm, 1.429100*mm, 
+	   1.428800*mm, 1.428500*mm, 1.522600*mm, 0.077900*mm, 6.257500*mm, 32.66210*mm, 126.9866*mm, 
+	   255.7264*mm, 386.1657*mm, 530.6386*mm, 628.0317*mm, 625.9384*mm, 701.6796*mm, 664.2789*mm, 
+	   642.2789*mm, 713.7454*mm, 717.4464*mm, 707.8467*mm
+
+	 };
+			
+	/* 10 mm irradiated 
+	   	   1.383000*mm, 1.395000*mm, 1.396000*mm, 1.392000*mm, 1.390000*mm, 1.386000*mm, 1.39000*mm, 1.39200*mm, 
+	   1.433000*mm, 1.636000*mm, 2.010000*mm, 2.295000*mm, 2.647000*mm, 3.114000*mm, 3.70600*mm, 4.46800*mm, 
+	   5.448000*mm, 6.732000*mm, 8.329000*mm, 10.41700*mm, 12.99700*mm, 16.21400*mm, 20.0680*mm, 24.5410*mm, 
+	   29.61600*mm, 35.04100*mm, 60.90500*mm, 80.38500*mm, 99.50100*mm, 117.8610*mm, 135.780*mm, 154.530*mm, 
+	   174.8130*mm, 197.5450*mm, 224.3070*mm, 263.7120*mm, 299.6230*mm, 336.2730*mm, 366.655*mm, 415.466*mm, 
+	   470.6420*mm, 522.5460*mm, 580.1250*mm, 653.8220*mm, 721.5750*mm, 797.8590*mm, 881.219*mm, 966.271*mm, 
+	   1082.619*mm, 1216.516*mm, 1348.116*mm, 1587.519*mm, 2027.510*mm, 2681.973*mm 
+
+	*/ 
+	/* 10 mm unirradiated 
+1.437000*mm, 1.432000*mm, 1.435000*mm, 1.443000*mm, 1.433000*mm, 1.428000*mm, 1.429000*mm, 1.429000*mm, 1.429000*mm, 
+	    1.448000*mm, 1.512000*mm, 1.640000*mm, 1.838000*mm, 2.129000*mm, 2.531000*mm, 3.064000*mm, 3.779000*mm, 4.746000*mm, 
+	    6.049000*mm, 7.814000*mm, 10.17900*mm, 13.45200*mm, 17.80700*mm, 23.71900*mm, 31.52200*mm, 41.67000*mm, 128.5530*mm, 
+	    244.6510*mm, 362.5350*mm, 468.9050*mm, 556.4500*mm, 581.4470*mm, 583.3840*mm, 546.1620*mm, 535.2260*mm, 546.1620*mm, 
+	    552.0960*mm, 537.2220*mm, 549.1340*mm, 589.1820*mm, 660.4370*mm, 720.6130*mm, 798.3950*mm, 917.1380*mm, 975.2190*mm, 
+	    1090.959*mm, 1153.649*mm, 1197.011*mm, 1220.498*mm, 1222.823*mm, 1163.409*mm, 1236.684*mm, 1359.228*mm, 1241.272*mm
   
-	G4double AbsLength[nEntries] = 
-      {
-	1.15330*cm, 1.16570*cm, 1.16667*cm, 1.15500*cm, 1.16222*cm, 1.14870*cm, 1.1550*cm, 
-	1.15750*cm, 1.16429*cm, 1.2094*cm, 1.3714*cm, 1.155313*cm, 1.79375*cm, 2.11429*cm,
-	2.47143*cm, 3.04286*cm, 3.82857*cm, 4.79166*cm, 6.1842*cm, 8.00000*cm, 10.5526*cm, 
-	14.0789*cm, 19.25*cm, 26.4*cm, 36.533*cm, 50.400*cm, 70.000*cm, 99.0*cm, 137.0*cm, 
-	197.9998*cm, 280.0*cm
-      };
-	
-	/*
-	G4double AbsLength[nEntries] = {absLength, absLength};
-        */
+		*/
+
+	/* 4 mm irradiated
+	  0.55800*mm, 0.56400*mm, 0.56200*mm, 0.56400*mm, 0.56400*mm, 0.56200*mm, 0.57300*mm, 0.58200*mm, 0.59100*mm, 
+	  0.60900*mm, 0.62700*mm, 0.64500*mm, 0.67300*mm, 0.71800*mm, 0.76300*mm, 0.82000*mm, 0.89100*mm, 0.98200*mm, 
+	  1.08600*mm, 1.22000*mm, 1.38900*mm, 1.59900*mm, 1.85800*mm, 2.19300*mm, 2.62000*mm, 3.15300*mm, 3.83900*mm, 
+	  4.73900*mm, 5.86400*mm, 9.09800*mm, 13.9680*mm, 23.8580*mm, 39.5250*mm, 50.0130*mm, 60.7720*mm, 70.4490*mm, 
+	  78.8850*mm, 86.6010*mm, 96.8360*mm, 106.602*mm, 115.300*mm, 128.116*mm, 141.749*mm, 151.683*mm, 159.770*mm, 
+	  170.497*mm, 189.118*mm, 196.214*mm, 210.116*mm, 231.530*mm, 239.115*mm, 258.689*mm, 275.084*mm, 288.386*mm, 
+	  304.507*mm, 326.255*mm, 326.255*mm, 347.733*mm, 366.133*mm, 387.123*mm
+	*/
+
+	/* 6 mm irradiated
+	     0.83900*mm, 0.84700*mm, 0.83500*mm, 0.84100*mm, 0.83900*mm, 0.83800*mm, 0.83800*mm, 0.86200*mm, 0.89000*mm, 0.91700*mm, 
+	    0.95500*mm, 1.01300*mm, 1.08900*mm, 1.18600*mm, 1.31200*mm, 1.47000*mm, 1.66000*mm, 1.90500*mm, 2.21700*mm, 2.60800*mm, 
+	    3.10900*mm, 3.75200*mm, 4.56700*mm, 5.58700*mm, 6.91100*mm, 8.58300*mm, 10.6320*mm, 16.1440*mm, 27.1180*mm, 44.3320*mm, 
+	    56.6104*mm, 68.4340*mm, 80.1010*mm, 90.6340*mm, 101.829*mm, 114.351*mm, 127.097*mm, 140.209*mm, 156.128*mm, 177.580*mm, 
+	    192.877*mm, 205.167*mm, 226.508*mm, 251.467*mm, 270.259*mm, 301.792*mm, 335.811*mm, 358.004*mm, 400.969*mm, 451.566*mm, 
+	    479.263*mm, 531.969*mm, 592.162*mm, 616.178*mm, 707.445*mm, 808.841*mm, 859.135*mm
+	*/
+	//G4double AbsLength[nEntries] = {absLength, absLength};        
 
         // Add entries into properties table
         G4MaterialPropertiesTable* MPTEJ200 = new G4MaterialPropertiesTable();
@@ -1603,7 +1661,6 @@ void LYSimDetectorConstruction::DefineMaterials()
 }
 
 
-   
 void LYSimDetectorConstruction::DefineSurfaces()
 {
     {
