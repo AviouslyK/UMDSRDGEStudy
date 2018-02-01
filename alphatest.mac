@@ -1,27 +1,26 @@
-test/tracking/verbose 0
+#Macro file for RadDam setup: EJ200
+/process/setVerbose 0
+
+########################################
+#General Particle Source setup commands
+########################################
 /gps/particle opticalphoton
+
+#GPS beam spot definition
 /gps/pos/type Plane
 /gps/pos/shape Circle
-/gps/pos/centre 0 2.5 0 cm
-/gps/pos/halfx 6 mm
-/gps/pos/halfy 6 mm
+/gps/pos/centre 0. 4.8 0. mm
+/gps/pos/radius 1.0 mm
+/gps/number 10000
+
+#GPS momentum direction
 /gps/ang/type iso
+/gps/pos/rot1 1. 0. 0.
+/gps/pos/rot2 0. 0. -1.
+
+#GPS energy distribution
 /gps/ene/type Arb
 /gps/hist/type arb
-
-# EJ200 Emission Spectrum 
-
-/gps/hist/point 3.263e-6 0.0000
-/gps/hist/point 3.254e-6 0.0000
-/gps/hist/point 3.237e-6 0.0000
-/gps/hist/point 3.220e-6 0.0000
-/gps/hist/point 3.212e-6 0.0000
-/gps/hist/point 3.204e-6 0.0000
-/gps/hist/point 3.195e-6 0.0000
-/gps/hist/point 3.179e-6 0.0000
-/gps/hist/point 3.171e-6 0.0000
-/gps/hist/point 3.163e-6 0.0000
-/gps/hist/point 3.147e-6 0.0000
 /gps/hist/point 3.128e-6 0.0000
 /gps/hist/point 3.119e-6 0.0008
 /gps/hist/point 3.108e-6 0.0065
@@ -140,7 +139,29 @@ test/tracking/verbose 0
 /gps/hist/point 2.492e-6 0.0597
 /gps/hist/point 2.486e-6 0.0573
 /gps/hist/point 2.482e-6 0.0548
-
+/gps/hist/point	2.480E-6 0.0536
+/gps/hist/point	2.455E-6 0.0402
+/gps/hist/point	2.431E-6 0.0302
+/gps/hist/point	2.407E-6 0.0226
+/gps/hist/point	2.384E-6 0.0170
+/gps/hist/point	2.362E-6 0.0127
+/gps/hist/point	2.339E-6 0.0096
+/gps/hist/point	2.317E-6 0.0072
+/gps/hist/point	2.296E-6 0.0054
+/gps/hist/point	2.275E-6 0.0040
+/gps/hist/point	2.254E-6 0.0030
+/gps/hist/point	2.234E-6 0.0023
+/gps/hist/point	2.214E-6 0.0017
+/gps/hist/point	2.194E-6 0.0013
+/gps/hist/point	2.175E-6 0.0010
+/gps/hist/point	2.156E-6 0.0007
+/gps/hist/point	2.138E-6 0.0005
+/gps/hist/point	2.119E-6 0.0004
+/gps/hist/point	2.101E-6 0.0003
+/gps/hist/point	2.066E-6 0.0002
+/gps/hist/point	1.907E-6 0.0000
 /gps/hist/inter Lin
 
-/run/beamOn 1000000
+/run/beamOn 100000
+
+ 
