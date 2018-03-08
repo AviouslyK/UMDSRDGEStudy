@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#used to submit one job to condor
+#used to submit only one job to condor
 import os, sys
 import shlex, subprocess
 from datetime import datetime, date, time
@@ -10,17 +10,17 @@ import numpy as np
 
 JobTime = datetime.now()
 fTag = JobTime.strftime("%Y%m%d_%H%M%S")
-sTag = "alpha10thousphotons"
+sTag = "MUSpectrum"
 dirname = "jobs/%s_%s"%(sTag,fTag)
 DetType = "1" #rod
-logFile = "0201.log"
+logFile = "0305.log"
 
 try:
     os.makedirs(dirname)
 except:
     pass
 
-ProdTag = "Run1_20180201"
+ProdTag = "Run2_20180305"
 OutDir  = "/home/kahn/PhysHonr268n/CMSSW_5_3_30/Research/G4/honrgeant/UMDSRDGEStudy-build/Absdata"
 WorkDir = "/home/kahn/PhysHonr268n/CMSSW_5_3_30/Research/G4/honrgeant/UMDSRDGEStudy-build/"
 
@@ -45,33 +45,27 @@ except:
 #########################################
 condor_script_template = """
 universe = vanilla
-Executable = ./CMS.sh
+Executable = ./RunPythonScripts.sh
 +IsLocalJob = true
 Should_transfer_files = NO
 Requirements = TARGET.FileSystemDomain == "privnet"
 Output = %(OUTDIR)s/%(MYPREFIX)s/logs/%(FILENAME)s_sce_$(cluster)_$(process).stdout
 Error  = %(OUTDIR)s/%(MYPREFIX)s/logs/%(FILENAME)s_sce_$(cluster)_$(process).stderr
 Log    = %(OUTDIR)s/%(MYPREFIX)s/logs/%(FILENAME)s_sce_$(cluster)_$(process).condor
-Arguments = %(WORKDIR)s %(INPUT)s %(FILENAME)s %(DETTYPE)s 
 Queue 1
  
 """
-######################    %(LOGFILE)s  ###################
-# %(OUTDIR)s/%(MYPREFIX)s/
+##########################################
 
-
-# Defining the infile                                                            
-InFile = 'alphatest.mac'
-    
 kw = {}
 
 kw["MYPREFIX"]  = ProdTag
-kw["WORKDIR"]   = WorkDir
+#kw["WORKDIR"]   = WorkDir
 kw["OUTDIR"]    = OutDir
-kw["INPUT"]     = InFile
+#kw["INPUT"]     = InFile
 kw["FILENAME"]  = sTag
-kw["DETTYPE"]   = DetType
-kw["LOGFILE"]   = logFile
+#kw["DETTYPE"]   = DetType
+#kw["LOGFILE"]   = logFile
 
 script_str = condor_script_template % kw
 f = open("%s/condor_jobs_%s_G4Sim.jdl"%(dirname,sTag), 'w')
