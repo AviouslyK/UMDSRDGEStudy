@@ -1,4 +1,4 @@
-import numpy
+            import numpy
 
 #program to calculate Znot and Mu2 Iterations for each wavelength
 
@@ -41,8 +41,8 @@ ZnotsIT0  = [2.427889359, 2.561517235, 2.581265491, 2.614503112, 2.590083237, 2.
             2.386197251, 2.400069724, 2.339126982, 2.265970197, 2.261966723]
      
 Mu2sIT0   = [0.01555365, 0.0066647, 0.00393635, 0.0026486, 0.00193565, 0.0012531, 0.00084195, 0.0006006, 0.0002296, 
-             0, 0, 0, 0, 0, 0, 0, 0, 0, 
-             0]
+             -0.0002094, -0.0007725, -0.0007476, -0.0009935, -0.00114345, -0.0012618, -0.0013434, -0.0014126,
+             -0.00133615, -0.00130455]
 Mu2sIT1   = [None]*19;
 Mu2sIT2   = [None]*19;
 Mu2sIT3   = [None]*19;
@@ -586,43 +586,43 @@ for j in range (len(Iterations)):
     for i in range(len(Waves)):
 
         if j == 0:
-            ZnotB = (t3*(b[i]-Mu2sIT0[i]))/(2*(a[i]-Mu2sIT0[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT1[i]))/(2*(a[i]-Mu2sIT1[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT0[i]))/(2*(a[i]-Mu2sIT0[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT1[i]))/(2*(a[i]-Mu2sIT1[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT1[i] = Znot;
 
         if j == 1:
-            ZnotB = (t3*(b[i]-Mu2sIT1[i]))/(2*(a[i]-Mu2sIT1[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT2[i]))/(2*(a[i]-Mu2sIT2[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT1[i]))/(2*(a[i]-Mu2sIT1[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT2[i]))/(2*(a[i]-Mu2sIT2[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT2[i] = Znot;
 
 
         if j == 2:
-            ZnotB = (t3*(b[i]-Mu2sIT2[i]))/(2*(a[i]-Mu2sIT2[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT3[i]))/(2*(a[i]-Mu2sIT3[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT2[i]))/(2*(a[i]-Mu2sIT2[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT3[i]))/(2*(a[i]-Mu2sIT3[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT3[i] = Znot;
 
         if j == 3:
-            ZnotB = (t3*(b[i]-Mu2sIT3[i]))/(2*(a[i]-Mu2sIT3[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT4[i]))/(2*(a[i]-Mu2sIT4[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT3[i]))/(2*(a[i]-Mu2sIT3[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT4[i]))/(2*(a[i]-Mu2sIT4[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT4[i] = Znot;
 
 
         if j == 4:
-            ZnotB = (t3*(b[i]-Mu2sIT4[i]))/(2*(a[i]-Mu2sIT4[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT5[i]))/(2*(a[i]-Mu2sIT5[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT4[i]))/(2*(a[i]-Mu2sIT4[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT5[i]))/(2*(a[i]-Mu2sIT5[i]));
                     
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT5[i] = Znot;
@@ -630,96 +630,96 @@ for j in range (len(Iterations)):
     
 
         if j == 5:
-            ZnotB = (t3*(b[i]-Mu2sIT5[i]))/(2*(a[i]-Mu2sIT5[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT6[i]))/(2*(a[i]-Mu2sIT6[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT5[i]))/(2*(a[i]-Mu2sIT5[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT6[i]))/(2*(a[i]-Mu2sIT6[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT6[i] = Znot;
 
             
         if j == 6:
-            ZnotB = (t3*(b[i]-Mu2sIT6[i]))/(2*(a[i]-Mu2sIT6[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT7[i]))/(2*(a[i]-Mu2sIT7[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT6[i]))/(2*(a[i]-Mu2sIT6[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT7[i]))/(2*(a[i]-Mu2sIT7[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT7[i] = Znot;
 
 
         if j == 7:
-            ZnotB = (t3*(b[i]-Mu2sIT7[i]))/(2*(a[i]-Mu2sIT7[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT8[i]))/(2*(a[i]-Mu2sIT8[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT7[i]))/(2*(a[i]-Mu2sIT7[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT8[i]))/(2*(a[i]-Mu2sIT8[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT8[i] = Znot;
 
 
         if j == 8:
-            ZnotB = (t3*(b[i]-Mu2sIT8[i]))/(2*(a[i]-Mu2sIT8[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT9[i]))/(2*(a[i]-Mu2sIT9[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT8[i]))/(2*(a[i]-Mu2sIT8[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT9[i]))/(2*(a[i]-Mu2sIT9[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT9[i] = Znot;
 
 
         if j == 9:
-            ZnotB = (t3*(b[i]-Mu2sIT9[i]))/(2*(a[i]-Mu2sIT9[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT10[i]))/(2*(a[i]-Mu2sIT10[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT9[i]))/(2*(a[i]-Mu2sIT9[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT10[i]))/(2*(a[i]-Mu2sIT10[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT10[i] = Znot;
 
 
         if j == 10:
-            ZnotB = (t3*(b[i]-Mu2sIT10[i]))/(2*(a[i]-Mu2sIT10[i]));
-   
-            ZnotC = (t1*(c[i]-Mu2sIT10[i]))/(2*(a[i]-Mu2sIT10[i]));
-
-            Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT11[i] = Znot;
-            
-        if j == 11:
             ZnotB = (t3*(b[i]-Mu2sIT11[i]))/(2*(a[i]-Mu2sIT11[i]));
    
             ZnotC = (t1*(c[i]-Mu2sIT11[i]))/(2*(a[i]-Mu2sIT11[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT12[i] = ZnotC;
-
-        if j == 12:
+            ZnotsIT11[i] = Znot;
+            
+        if j == 11:
             ZnotB = (t3*(b[i]-Mu2sIT12[i]))/(2*(a[i]-Mu2sIT12[i]));
    
             ZnotC = (t1*(c[i]-Mu2sIT12[i]))/(2*(a[i]-Mu2sIT12[i]));
+
+            Znot  = (ZnotB + ZnotC)/2;
+            ZnotsIT12[i] = ZnotC;
+
+        if j == 12:
+            ZnotB = (t3*(b[i]-Mu2sIT13[i]))/(2*(a[i]-Mu2sIT13[i]));
+   
+            ZnotC = (t1*(c[i]-Mu2sIT13[i]))/(2*(a[i]-Mu2sIT13[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT13[i] = Znot;
 
 
         if j == 13:
-            ZnotB = (t3*(b[i]-Mu2sIT13[i]))/(2*(a[i]-Mu2sIT13[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT14[i]))/(2*(a[i]-Mu2sIT14[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT13[i]))/(2*(a[i]-Mu2sIT13[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT14[i]))/(2*(a[i]-Mu2sIT14[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT14[i] = Znot;
 
         if j == 14:
-            ZnotB = (t3*(b[i]-Mu2sIT14[i]))/(2*(a[i]-Mu2sIT14[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT15[i]))/(2*(a[i]-Mu2sIT15[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT14[i]))/(2*(a[i]-Mu2sIT14[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT15[i]))/(2*(a[i]-Mu2sIT15[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT15[i] = Znot;
 
 
         if j == 15:
-            ZnotB = (t3*(b[i]-Mu2sIT15[i]))/(2*(a[i]-Mu2sIT15[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT16[i]))/(2*(a[i]-Mu2sIT16[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT15[i]))/(2*(a[i]-Mu2sIT15[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT16[i]))/(2*(a[i]-Mu2sIT16[i]));
                     
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT16[i] = Znot;
@@ -727,95 +727,95 @@ for j in range (len(Iterations)):
     
 
         if j == 16:
-            ZnotB = (t3*(b[i]-Mu2sIT16[i]))/(2*(a[i]-Mu2sIT16[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT17[i]))/(2*(a[i]-Mu2sIT17[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT16[i]))/(2*(a[i]-Mu2sIT16[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT17[i]))/(2*(a[i]-Mu2sIT17[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT17[i] = Znot;
 
         if j == 17:
-            ZnotB = (t3*(b[i]-Mu2sIT17[i]))/(2*(a[i]-Mu2sIT17[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT18[i]))/(2*(a[i]-Mu2sIT18[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT17[i]))/(2*(a[i]-Mu2sIT17[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT18[i]))/(2*(a[i]-Mu2sIT18[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT18[i] = Znot;
 
 
         if j == 18:
-            ZnotB = (t3*(b[i]-Mu2sIT18[i]))/(2*(a[i]-Mu2sIT18[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT19[i]))/(2*(a[i]-Mu2sIT19[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT18[i]))/(2*(a[i]-Mu2sIT18[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT19[i]))/(2*(a[i]-Mu2sIT19[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT19[i] = Znot;
 
 
         if j == 19:
-            ZnotB = (t3*(b[i]-Mu2sIT19[i]))/(2*(a[i]-Mu2sIT19[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT20[i]))/(2*(a[i]-Mu2sIT20[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT19[i]))/(2*(a[i]-Mu2sIT19[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT20[i]))/(2*(a[i]-Mu2sIT20[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT20[i] = Znot;
 
 
         if j == 20:
-            ZnotB = (t3*(b[i]-Mu2sIT20[i]))/(2*(a[i]-Mu2sIT20[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT21[i]))/(2*(a[i]-Mu2sIT21[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT20[i]))/(2*(a[i]-Mu2sIT20[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT21[i]))/(2*(a[i]-Mu2sIT21[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT21[i] = Znot;
 
 
         if j == 21:
-            ZnotB = (t3*(b[i]-Mu2sIT21[i]))/(2*(a[i]-Mu2sIT21[i]));
-   
-            ZnotC = (t1*(c[i]-Mu2sIT21[i]))/(2*(a[i]-Mu2sIT21[i]));
-
-            Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT22[i] = Znot;
-
-        if j == 22:
             ZnotB = (t3*(b[i]-Mu2sIT22[i]))/(2*(a[i]-Mu2sIT22[i]));
    
             ZnotC = (t1*(c[i]-Mu2sIT22[i]))/(2*(a[i]-Mu2sIT22[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT23[i] = ZnotC;
+            ZnotsIT22[i] = Znot;
 
-        if j == 23:
+        if j == 22:
             ZnotB = (t3*(b[i]-Mu2sIT23[i]))/(2*(a[i]-Mu2sIT23[i]));
    
             ZnotC = (t1*(c[i]-Mu2sIT23[i]))/(2*(a[i]-Mu2sIT23[i]));
+
+            Znot  = (ZnotB + ZnotC)/2;
+            ZnotsIT23[i] = Znot;
+
+        if j == 23:
+            ZnotB = (t3*(b[i]-Mu2sIT24[i]))/(2*(a[i]-Mu2sIT24[i]));
+   
+            ZnotC = (t1*(c[i]-Mu2sIT24[i]))/(2*(a[i]-Mu2sIT24[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT24[i] = Znot;
 
 
         if j == 24:
-            ZnotB = (t3*(b[i]-Mu2sIT24[i]))/(2*(a[i]-Mu2sIT24[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT25[i]))/(2*(a[i]-Mu2sIT25[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT24[i]))/(2*(a[i]-Mu2sIT24[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT25[i]))/(2*(a[i]-Mu2sIT25[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT25[i] = Znot;
 
         if j == 25:
-            ZnotB = (t3*(b[i]-Mu2sIT25[i]))/(2*(a[i]-Mu2sIT25[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT26[i]))/(2*(a[i]-Mu2sIT26[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT25[i]))/(2*(a[i]-Mu2sIT25[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT26[i]))/(2*(a[i]-Mu2sIT26[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT26[i] = Znot;
 
 
         if j == 26:
-            ZnotB = (t3*(b[i]-Mu2sIT26[i]))/(2*(a[i]-Mu2sIT26[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT27[i]))/(2*(a[i]-Mu2sIT27[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT26[i]))/(2*(a[i]-Mu2sIT26[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT27[i]))/(2*(a[i]-Mu2sIT27[i]));
                     
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT27[i] = Znot;
@@ -823,54 +823,54 @@ for j in range (len(Iterations)):
     
 
         if j == 27:
-            ZnotB = (t3*(b[i]-Mu2sIT27[i]))/(2*(a[i]-Mu2sIT27[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT28[i]))/(2*(a[i]-Mu2sIT28[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT27[i]))/(2*(a[i]-Mu2sIT27[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT28[i]))/(2*(a[i]-Mu2sIT28[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT28[i] = Znot;
 
             
         if j == 28:
-            ZnotB = (t3*(b[i]-Mu2sIT28[i]))/(2*(a[i]-Mu2sIT28[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT29[i]))/(2*(a[i]-Mu2sIT29[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT28[i]))/(2*(a[i]-Mu2sIT28[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT29[i]))/(2*(a[i]-Mu2sIT29[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT29[i] = Znot;
 
 
         if j == 29:
-            ZnotB = (t3*(b[i]-Mu2sIT29[i]))/(2*(a[i]-Mu2sIT29[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT30[i]))/(2*(a[i]-Mu2sIT30[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT29[i]))/(2*(a[i]-Mu2sIT29[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT30[i]))/(2*(a[i]-Mu2sIT30[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT30[i] = Znot;
  
 
         if j == 30:
-            ZnotB = (t3*(b[i]-Mu2sIT30[i]))/(2*(a[i]-Mu2sIT30[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT31[i]))/(2*(a[i]-Mu2sIT31[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT30[i]))/(2*(a[i]-Mu2sIT30[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT31[i]))/(2*(a[i]-Mu2sIT31[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT31[i] = Znot;
 
 
         if j == 31:
-            ZnotB = (t3*(b[i]-Mu2sIT31[i]))/(2*(a[i]-Mu2sIT31[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT32[i]))/(2*(a[i]-Mu2sIT32[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT31[i]))/(2*(a[i]-Mu2sIT31[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT32[i]))/(2*(a[i]-Mu2sIT32[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT32[i] = Znot;
 
 
         if j == 32:
-            ZnotB = (t3*(b[i]-Mu2sIT32[i]))/(2*(a[i]-Mu2sIT32[i]));
+            ZnotB = (t3*(b[i]-Mu2sIT33[i]))/(2*(a[i]-Mu2sIT33[i]));
    
-            ZnotC = (t1*(c[i]-Mu2sIT32[i]))/(2*(a[i]-Mu2sIT32[i]));
+            ZnotC = (t1*(c[i]-Mu2sIT33[i]))/(2*(a[i]-Mu2sIT33[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
             ZnotsIT33[i] = Znot;
