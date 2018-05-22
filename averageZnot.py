@@ -591,7 +591,7 @@ for j in range (len(Iterations)):
             ZnotC = (t1*(c[i]-Mu2sIT0[i]))/(2*(a[i]-Mu2sIT0[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT1[i] = ZnotC;
+            ZnotsIT1[i] = Znot;
 
         if j == 1:
             ZnotB = (t3*(b[i]-Mu2sIT1[i]))/(2*(a[i]-Mu2sIT1[i]));
