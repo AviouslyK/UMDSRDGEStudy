@@ -128,7 +128,7 @@ for j in range (len(Iterations)):
             #if Mu2 < 0:
             #    Mu2sIT10[i] = 0;
             #else:
-            Mu2sIT10[i] = Mu2b;
+            Mu2sIT1[i] = Mu2b;
         
     
         if j == 1:
@@ -158,7 +158,7 @@ for j in range (len(Iterations)):
             #if Mu2 < 0:
             #    Mu2sIT6[i] = 0;
             #else:
-            Mu2sIT6[i] = Mu2b;
+            Mu2sIT3[i] = Mu2b;
         
 
         if j == 3:
@@ -258,7 +258,7 @@ for j in range (len(Iterations)):
             #if Mu2 < 0:
             #    Mu2sIT100[i] = 0;
             #else:
-            Mu2sIT100[i] = Mu2b;
+            Mu2sIT10[i] = Mu2b;
         
         if j == 10:
             Znot =  (ZnotsIT100[i]);
@@ -272,7 +272,7 @@ for j in range (len(Iterations)):
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
             #else:
-            Mu2sIT101[i] = Mu2b;
+            Mu2sIT11[i] = Mu2b;
         
         if j == 11:
             Znot =  (ZnotsIT101[i]);
@@ -286,7 +286,7 @@ for j in range (len(Iterations)):
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
             #else:
-            Mu2sIT102[i] = Mu2b;
+            Mu2sIT12[i] = Mu2b;
         
         if j == 12:
             Znot =  (ZnotsIT102[i]);
@@ -300,7 +300,7 @@ for j in range (len(Iterations)):
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
             #else:
-            Mu2sIT103[i] = Mu2b;
+            Mu2sIT13[i] = Mu2b;
         
         if j == 13:
             Znot =  (ZnotsIT103[i]);
@@ -314,7 +314,7 @@ for j in range (len(Iterations)):
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
             #else:
-            Mu2sIT104[i] = Mu2b;
+            Mu2sIT14[i] = Mu2b;
         
         if j == 14:
             Znot =  (ZnotsIT104[i]);
@@ -328,7 +328,7 @@ for j in range (len(Iterations)):
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
             #else:
-            Mu2sIT105[i] = Mu2b;
+            Mu2sIT15[i] = Mu2b;
         
         if j == 15:
             Znot =  (ZnotsIT105[i]);
@@ -342,7 +342,7 @@ for j in range (len(Iterations)):
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
             #else:
-            Mu2sIT106[i] = Mu2b;
+            Mu2sIT16[i] = Mu2b;
         
         if j == 16:
             Znot =  (ZnotsIT106[i]);
@@ -356,7 +356,7 @@ for j in range (len(Iterations)):
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
             #else:
-            Mu2sIT107[i] = Mu2b;
+            Mu2sIT17[i] = Mu2b;
         
         if j == 17:
             Znot =  (ZnotsIT107[i]);
@@ -370,7 +370,7 @@ for j in range (len(Iterations)):
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
             #else:
-            Mu2sIT108[i] = Mu2b;
+            Mu2sIT18[i] = Mu2b;
         
         if j == 18:
             Znot =  (ZnotsIT108[i]);
@@ -384,7 +384,7 @@ for j in range (len(Iterations)):
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
             #else:
-            Mu2sIT109[i] = Mu2b;
+            Mu2sIT19[i] = Mu2b;
         
         if j == 19:
             Znot =  (ZnotsIT109[i]);
@@ -538,7 +538,7 @@ for j in range (len(Iterations)):
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
             #else:
-            Mu2sIT60[i] = Mu2b;
+            Mu2sIT30[i] = Mu2b;
         
         if j == 30:
             Znot =  (ZnotsIT60[i]);
@@ -552,7 +552,7 @@ for j in range (len(Iterations)):
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
             #else:
-            Mu2sIT61[i] = Mu2b;
+            Mu2sIT31[i] = Mu2b;
         
         if j == 31:
             Znot =  (ZnotsIT61[i]);
@@ -566,7 +566,7 @@ for j in range (len(Iterations)):
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
             #else:
-            Mu2sIT62[i] = Mu2b;
+            Mu2sIT32[i] = Mu2b;
         
         if j == 32:
             Znot =  (ZnotsIT62[i]);
@@ -580,8 +580,8 @@ for j in range (len(Iterations)):
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
             #else:
-            Mu2sIT63[i] = Mu2b;
-                  
+            Mu2sIT33[i] = Mu2b;
+            
     #for i in range(len(Waves)):
 
         if j == 0:
@@ -590,7 +590,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT10[i]))/(2*(MuEff4[i]-Mu2sIT10[i]));
             #print (Mu2sIT10[i])
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT10[i] = ZnotB;
+            ZnotsIT1[i] = ZnotB;
 
         if j == 1:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT2[i]))/(2*(MuEff4[i]-Mu2sIT2[i]));
@@ -607,7 +607,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT6[i]))/(2*(MuEff4[i]-Mu2sIT6[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT6[i] = ZnotB;
+            ZnotsIT3[i] = ZnotB;
 
         if j == 3:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT4[i]))/(2*(MuEff4[i]-Mu2sIT4[i]));
@@ -670,7 +670,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT100[i]))/(2*(MuEff4[i]-Mu2sIT100[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT100[i] = ZnotB;
+            ZnotsIT10[i] = ZnotB;
 
 
         if j == 10:
@@ -679,7 +679,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT101[i]))/(2*(MuEff4[i]-Mu2sIT101[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT101[i] = ZnotB;
+            ZnotsIT11[i] = ZnotB;
             
         if j == 11:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT102[i]))/(2*(MuEff4[i]-Mu2sIT102[i]));
@@ -687,7 +687,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT102[i]))/(2*(MuEff4[i]-Mu2sIT102[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT102[i] = ZnotB;
+            ZnotsIT12[i] = ZnotB;
 
         if j == 12:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT103[i]))/(2*(MuEff4[i]-Mu2sIT103[i]));
@@ -695,7 +695,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT103[i]))/(2*(MuEff4[i]-Mu2sIT103[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT103[i] = ZnotB;
+            ZnotsIT13[i] = ZnotB;
 
 
         if j == 13:
@@ -704,7 +704,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT104[i]))/(2*(MuEff4[i]-Mu2sIT104[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT104[i] = ZnotB;
+            ZnotsIT14[i] = ZnotB;
 
         if j == 14:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT105[i]))/(2*(MuEff4[i]-Mu2sIT105[i]));
@@ -712,7 +712,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT105[i]))/(2*(MuEff4[i]-Mu2sIT105[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT105[i] = ZnotB;
+            ZnotsIT15[i] = ZnotB;
 
 
         if j == 15:
@@ -721,7 +721,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT106[i]))/(2*(MuEff4[i]-Mu2sIT106[i]));
                     
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT106[i] = ZnotB;
+            ZnotsIT16[i] = ZnotB;
 
     
 
@@ -731,7 +731,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT107[i]))/(2*(MuEff4[i]-Mu2sIT107[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT107[i] = ZnotB;
+            ZnotsIT17[i] = ZnotB;
 
         if j == 17:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT108[i]))/(2*(MuEff4[i]-Mu2sIT108[i]));
@@ -739,7 +739,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT108[i]))/(2*(MuEff4[i]-Mu2sIT108[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT108[i] = ZnotB;
+            ZnotsIT18[i] = ZnotB;
 
 
         if j == 18:
@@ -748,7 +748,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT109[i]))/(2*(MuEff4[i]-Mu2sIT109[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT109[i] = ZnotB;
+            ZnotsIT19[i] = ZnotB;
 
 
         if j == 19:
@@ -845,7 +845,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT60[i]))/(2*(MuEff4[i]-Mu2sIT60[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT60[i] = ZnotB;
+            ZnotsIT30[i] = ZnotB;
  
 
         if j == 30:
@@ -854,7 +854,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT61[i]))/(2*(MuEff4[i]-Mu2sIT61[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT61[i] = ZnotB;
+            ZnotsIT31[i] = ZnotB;
 
 
         if j == 31:
@@ -863,7 +863,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT62[i]))/(2*(MuEff4[i]-Mu2sIT62[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT62[i] = ZnotB;
+            ZnotsIT32[i] = ZnotB;
 
 
         if j == 32:
@@ -872,10 +872,10 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT63[i]))/(2*(MuEff4[i]-Mu2sIT63[i]));
 
             Znot  = (ZnotB + ZnotC)/2;
-            ZnotsIT63[i] = ZnotB;
+            ZnotsIT33[i] = ZnotB;
 
 #print parameter values
-print 'Wavelength \t\tMu2sIT0 \t\tMu2sIT10 \t\tMu2sIT2 \t\tMu2sIT6 \t\tMu2sIT4 \t\tMu2sIT5 \t\tMu2sIT6 \t\tMu2sIT7 \t\tMu2sIT8 \t\tMu2sIT9 \t\tMu2sIT100 \t\tMu2sIT101 \t\tMu2sIT102 \t\tMu2sIT103 \t\tMu2sIT104 \t\tMu2sIT105 \t\tMu2sIT106 \t\tMu2sIT107 \t\tMu2sIT108 \t\tMu2sIT109 \t\tMu2sIT20 \t\tMu2sIT21 \t\tMu2sIT22 \t\tMu2sIT23 \t\tMu2sIT24 \t\tMu2sIT25 \t\tMu2sIT26 \t\tMu2sIT27 \t\tMu2sIT28 \t\tMu2sIT29 \t\tMu2sIT60 \t\tMu2sIT61 \t\tMu2sIT62 \t\tMu2sIT63 \t\tZnotsIT0 \t\tZnotsIT10 \t\tZnotsIT2 \t\tZnotsIT6 \t\tZnotsIT4 \t\tZnotsIT5 \t\tZnotsIT6 \t\tZnotsIT7 \t\tZnotsIT8 \t\tZnotsIT9 \t\tZnotsIT100 \t\tZnotsIT101 \t\tZnotsIT102 \t\tZnotsIT103 \t\tZnotsIT104 \t\tZnotsIT105 \t\tZnotsIT106 \t\tZnotsIT107 \t\tZnotsIT108 \t\tZnotsIT109 \t\tZnotsIT20 \t\tZnotsIT21 \t\tZnotsIT22 \t\tZnotsIT23 \t\tZnotsIT24 \t\tZnotsIT25 \t\tZnotsIT26 \t\tZnotsIT27 \t\tZnotsIT28 \t\tZnotsIT29 \t\tZnotsIT60 \t\tZnotsIT61 \t\tZnotsIT62 \t\tZnotsIT63'
+print 'Wavelength \t\tMu2sIT0 \t\tMu2sIT1 \t\tMu2sIT2 \t\tMu2sIT3 \t\tMu2sIT4 \t\tMu2sIT5 \t\tMu2sIT6 \t\tMu2sIT7 \t\tMu2sIT8 \t\tMu2sIT9 \t\tMu2sIT10 \t\tMu2sIT11 \t\tMu2sIT12 \t\tMu2sIT13 \t\tMu2sIT14 \t\tMu2sIT15 \t\tMu2sIT16 \t\tMu2sIT17 \t\tMu2sIT18 \t\tMu2sIT19 \t\tMu2sIT20 \t\tMu2sIT21 \t\tMu2sIT22 \t\tMu2sIT23 \t\tMu2sIT24 \t\tMu2sIT25 \t\tMu2sIT26 \t\tMu2sIT27 \t\tMu2sIT28 \t\tMu2sIT29 \t\tMu2sIT30 \t\tMu2sIT31 \t\tMu2sIT32 \t\tMu2sIT33 \t\tZnotsIT0 \t\tZnotsIT1 \t\tZnotsIT2 \t\tZnotsIT3 \t\tZnotsIT4 \t\tZnotsIT5 \t\tZnotsIT6 \t\tZnotsIT7 \t\tZnotsIT8 \t\tZnotsIT9 \t\tZnotsIT10 \t\tZnotsIT11 \t\tZnotsIT12 \t\tZnotsIT13 \t\tZnotsIT14 \t\tZnotsIT15 \t\tZnotsIT16 \t\tZnotsIT17 \t\tZnotsIT18 \t\tZnotsIT19 \t\tZnotsIT20 \t\tZnotsIT21 \t\tZnotsIT22 \t\tZnotsIT23 \t\tZnotsIT24 \t\tZnotsIT25 \t\tZnotsIT26 \t\tZnotsIT27 \t\tZnotsIT28 \t\tZnotsIT29 \t\tZnotsIT30 \t\tZnotsIT31 \t\tZnotsIT32 \t\tZnotsIT33'
 
-for w,m0,m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12,m13,m14,m15,m16,m17,m18,m19,m20,m21,m22,m23,m24,m25,m26,m27,m28,m29,m30,m31,m32,m33,z0,z1,z2,z3,z4,z5,z6,z7,z8,z9,z10,z11,z12,z13,z14,z15,z16,z17,z18,z19,z20,z21,z22,z23,z24,z25,z26,z27,z28,z29,z30,z31,z32,z33 in zip(Waves,Mu2sIT0,Mu2sIT10,Mu2sIT2,Mu2sIT6,Mu2sIT4,Mu2sIT5,Mu2sIT6,Mu2sIT7,Mu2sIT8,Mu2sIT9,Mu2sIT100,Mu2sIT101,Mu2sIT102,Mu2sIT103,Mu2sIT104,Mu2sIT105,Mu2sIT106,Mu2sIT107,Mu2sIT108,Mu2sIT109,Mu2sIT20,Mu2sIT21,Mu2sIT22,Mu2sIT23,Mu2sIT24,Mu2sIT25,Mu2sIT26,Mu2sIT27,Mu2sIT28,Mu2sIT29,Mu2sIT60,Mu2sIT61,Mu2sIT62,Mu2sIT63,ZnotsIT0,ZnotsIT10,ZnotsIT2,ZnotsIT6,ZnotsIT4,ZnotsIT5,ZnotsIT6,ZnotsIT7,ZnotsIT8,ZnotsIT9,ZnotsIT100,ZnotsIT101,ZnotsIT102,ZnotsIT103,ZnotsIT104,ZnotsIT105,ZnotsIT106,ZnotsIT107,ZnotsIT108,ZnotsIT109,ZnotsIT20,ZnotsIT21,ZnotsIT22,ZnotsIT23,ZnotsIT24,ZnotsIT25,ZnotsIT26,ZnotsIT27,ZnotsIT28,ZnotsIT29,ZnotsIT60,ZnotsIT61,ZnotsIT62,ZnotsIT63):
+for w,m0,m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12,m13,m14,m15,m16,m17,m18,m19,m20,m21,m22,m23,m24,m25,m26,m27,m28,m29,m30,m31,m32,m33,z0,z1,z2,z3,z4,z5,z6,z7,z8,z9,z10,z11,z12,z13,z14,z15,z16,z17,z18,z19,z20,z21,z22,z23,z24,z25,z26,z27,z28,z29,z30,z31,z32,z33 in zip(Waves,Mu2sIT0,Mu2sIT1,Mu2sIT2,Mu2sIT3,Mu2sIT4,Mu2sIT5,Mu2sIT6,Mu2sIT7,Mu2sIT8,Mu2sIT9,Mu2sIT10,Mu2sIT11,Mu2sIT12,Mu2sIT13,Mu2sIT14,Mu2sIT15,Mu2sIT16,Mu2sIT17,Mu2sIT18,Mu2sIT19,Mu2sIT20,Mu2sIT21,Mu2sIT22,Mu2sIT23,Mu2sIT24,Mu2sIT25,Mu2sIT26,Mu2sIT27,Mu2sIT28,Mu2sIT29,Mu2sIT30,Mu2sIT31,Mu2sIT32,Mu2sIT33,ZnotsIT0,ZnotsIT1,ZnotsIT2,ZnotsIT3,ZnotsIT4,ZnotsIT5,ZnotsIT6,ZnotsIT7,ZnotsIT8,ZnotsIT9,ZnotsIT10,ZnotsIT11,ZnotsIT12,ZnotsIT13,ZnotsIT14,ZnotsIT15,ZnotsIT16,ZnotsIT17,ZnotsIT18,ZnotsIT19,ZnotsIT20,ZnotsIT21,ZnotsIT22,ZnotsIT23,ZnotsIT24,ZnotsIT25,ZnotsIT26,ZnotsIT27,ZnotsIT28,ZnotsIT29,ZnotsIT30,ZnotsIT31,ZnotsIT32,ZnotsIT33):
     print "%.3f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f\t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f" % ( w,m0,m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12,m13,m14,m15,m16,m17,m18,m19,m20,m21,m22,m23,m24,m25,m26,m27,m28,m29,m30,m31,m32,m33,z0,z1,z2,z3,z4,z5,z6,z7,z8,z9,z10,z11,z12,z13,z14,z15,z16,z17,z18,z19,z20,z21,z22,z23,z24,z25,z26,z27,z28,z29,z30,z31,z32,z33)
