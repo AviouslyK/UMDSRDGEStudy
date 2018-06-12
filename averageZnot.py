@@ -82,6 +82,73 @@ MuEff4  = [0.0417183, 0.0365294, 0.0323840, 0.0294381, 0.0270232, 0.0251845, 0.0
 t10 = 10;
 t6 = 6;
 t4 = 4;
+Mu2_1     = [None]*91;
+Mu2_2     = [None]*91;
+Mu2_3     = [None]*91;
+Mu2_4     = [None]*91;
+Mu2_5     = [None]*91;
+Mu2_6     = [None]*91;
+Mu2_7     = [None]*91;
+Mu2_8     = [None]*91;
+Mu2_9     = [None]*91;
+Mu2_10    = [None]*91;
+Mu2_11    = [None]*91;
+Mu2_12    = [None]*91;
+Mu2_13    = [None]*91;
+Mu2_14    = [None]*91;
+Mu2_15    = [None]*91;
+Mu2_16    = [None]*91;
+Mu2_17    = [None]*91;
+Mu2_18    = [None]*91;
+Mu2_19    = [None]*91;
+Mu2_20    = [None]*91;
+Mu2_21    = [None]*91;
+Mu2_22    = [None]*91;
+Mu2_23    = [None]*91;
+Mu2_24    = [None]*91;
+Mu2_25    = [None]*91;
+Mu2_26    = [None]*91;
+Mu2_27    = [None]*91;
+Mu2_28    = [None]*91;
+Mu2_29    = [None]*91;
+Mu2_30    = [None]*91;
+Mu2_31    = [None]*91;
+Mu2_32    = [None]*91;
+Mu2_33    = [None]*91
+
+Znot_1     = [None]*91;
+Znot_2     = [None]*91;
+Znot_3     = [None]*91;
+Znot_4     = [None]*91;
+Znot_5     = [None]*91;
+Znot_6     = [None]*91;
+Znot_7     = [None]*91;
+Znot_8     = [None]*91;
+Znot_9     = [None]*91;
+Znot_10    = [None]*91;
+Znot_11    = [None]*91;
+Znot_12    = [None]*91;
+Znot_13    = [None]*91;
+Znot_14    = [None]*91;
+Znot_15    = [None]*91;
+Znot_16    = [None]*91;
+Znot_17    = [None]*91;
+Znot_18    = [None]*91;
+Znot_19    = [None]*91;
+Znot_20    = [None]*91;
+Znot_21    = [None]*91;
+Znot_22    = [None]*91;
+Znot_23    = [None]*91;
+Znot_24    = [None]*91;
+Znot_25    = [None]*91;
+Znot_26    = [None]*91;
+Znot_27    = [None]*91;
+Znot_28    = [None]*91;
+Znot_29    = [None]*91;
+Znot_30    = [None]*91;
+Znot_31    = [None]*91;
+Znot_32    = [None]*91;
+Znot_33    = [None]*91;
 
 Mu2sIT0   = [None]*91;
 Mu2sIT1   = [None]*91;
@@ -170,7 +237,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_1[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT10[i] = 0;
@@ -180,7 +247,7 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT0, Mu2)
             #Mu2sIT1[i] = numpy.average(temp, axis=0)
-            Mu2sIT1[i] = numpy.average([Mu2sIT0[i], Mu2])
+            Mu2sIT1[i] = numpy.average([Mu2sIT0[i], Mu2_1[i]])
     
         if j == 1:
             Znot =  (ZnotsIT1[i]);
@@ -189,7 +256,7 @@ for j in range (len(Iterations)):
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_2[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT2[i] = 0;
@@ -199,7 +266,7 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT1, Mu2)
             #Mu2sIT2[i] = numpy.average(temp, axis=0)
-            Mu2sIT2[i] = numpy.average([Mu2sIT1[i], Mu2])
+            Mu2sIT2[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i]])
 
             
         if j == 2:
@@ -209,7 +276,7 @@ for j in range (len(Iterations)):
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_3[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT6[i] = 0;
@@ -219,7 +286,8 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT2, Mu2)
             #Mu2sIT3[i] = numpy.average(temp, axis=0)
-            Mu2sIT3[i] = numpy.average([Mu2sIT2[i], Mu2])
+            Mu2sIT3[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i]])
+            
 
         if j == 3:
             Znot =  (ZnotsIT3[i]);
@@ -227,7 +295,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_4[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT4[i] = 0;
@@ -237,7 +305,8 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT3, Mu2)
             #Mu2sIT4[i] = numpy.average(temp, axis=0)
-            Mu2sIT4[i] = numpy.average([Mu2sIT3[i], Mu2])
+            Mu2sIT4[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i]])
+            
             
         if j == 4:
             Znot =  (ZnotsIT4[i]);
@@ -245,7 +314,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_5[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT5[i] = 0;
@@ -255,15 +324,15 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT4, Mu2)
             #Mu2sIT5[i] = numpy.average(temp, axis=0)
-            Mu2sIT5[i] = numpy.average([Mu2sIT4[i], Mu2])
-
+            Mu2sIT5[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i]])
+            
         if j == 5:
             Znot =  (ZnotsIT5[i]);
             Mu2c = ((t10*MuEff10[i])-(2*Znot*MuEff4[i]))/(t10-(2*Znot));
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_6[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT6[i] = 0;
@@ -273,7 +342,8 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT5, Mu2)
             #Mu2sIT6[i] = numpy.average(temp, axis=0)
-            Mu2sIT6[i] = numpy.average([Mu2sIT5[i], Mu2])
+            Mu2sIT6[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i]])
+            
 
         if j == 6:
             Znot =  (ZnotsIT6[i]);
@@ -281,7 +351,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_7[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT7[i] = 0;
@@ -291,7 +361,8 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT6, Mu2)
             #Mu2sIT7[i] = numpy.average(temp, axis=0)
-            Mu2sIT7[i] = numpy.average([Mu2sIT6[i], Mu2])
+            Mu2sIT7[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i]])
+
 
         if j == 7:
             Znot =  (ZnotsIT7[i]);
@@ -299,7 +370,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_8[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT8[i] = 0;
@@ -309,7 +380,7 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT7, Mu2)
             #Mu2sIT8[i] = numpy.average(temp, axis=0)
-            Mu2sIT8[i] = numpy.average([Mu2sIT7[i], Mu2])
+            Mu2sIT8[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i]])
 
         if j == 8:
             Znot =  (ZnotsIT8[i]);
@@ -317,7 +388,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_9[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT9[i] = 0;
@@ -327,7 +398,8 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT8, Mu2)
             #Mu2sIT9[i] = numpy.average(temp, axis=0)
-            Mu2sIT9[i] = numpy.average([Mu2sIT8[i], Mu2])
+            Mu2sIT9[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i],
+                                        Mu2_9[i]])
 
         if j == 9:
             Znot =  (ZnotsIT9[i]);
@@ -335,7 +407,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_10[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT100[i] = 0;
@@ -344,8 +416,9 @@ for j in range (len(Iterations)):
 
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT9, Mu2)
-            #Mu2sIT0[i] = numpy.average(temp, axis=0)
-            Mu2sIT10[i] = numpy.average([Mu2sIT9[i], Mu2])
+            #Mu2sIT10[i] = numpy.average(temp, axis=0)
+            Mu2sIT10[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                        Mu2_9[i], Mu2_10[i]])
         
         if j == 10:
             Znot =  (ZnotsIT10[i]);
@@ -353,7 +426,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_11[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -363,7 +436,9 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT10, Mu2)
             #Mu2sIT11[i] = numpy.average(temp, axis=0)
-            Mu2sIT11[i] = numpy.average([Mu2sIT10[i], Mu2])
+            Mu2sIT11[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i]])
+        
         
         if j == 11:
             Znot =  (ZnotsIT11[i]);
@@ -371,7 +446,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_12[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -381,7 +456,9 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT11, Mu2)
             #Mu2sIT12[i] = numpy.average(temp, axis=0)
-            Mu2sIT12[i] = numpy.average([Mu2sIT11[i], Mu2])
+            Mu2sIT12[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i]])
+        
         
         if j == 12:
             Znot =  (ZnotsIT12[i]);
@@ -389,7 +466,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_13[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -399,7 +476,9 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT12, Mu2)
             #Mu2sIT13[i] = numpy.average(temp, axis=0)
-            Mu2sIT13[i] = numpy.average([Mu2sIT12[i], Mu2])
+            Mu2sIT13[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i]])
+        
         
         if j == 13:
             Znot =  (ZnotsIT13[i]);
@@ -407,7 +486,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_14[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -417,7 +496,9 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT13, Mu2)
             #Mu2sIT14[i] = numpy.average(temp, axis=0)
-            Mu2sIT14[i] = numpy.average([Mu2sIT13[i], Mu2])
+            Mu2sIT14[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i]])
+        
         
         if j == 14:
             Znot =  (ZnotsIT14[i]);
@@ -425,7 +506,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_15[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -435,15 +516,17 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT14, Mu2)
             #Mu2sIT15[i] = numpy.average(temp, axis=0)
-            Mu2sIT15[i] = numpy.average([Mu2sIT14[i], Mu2])
+            Mu2sIT15[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i]])
         
+ 
         if j == 15:
             Znot =  (ZnotsIT15[i]);
             Mu2c = ((t10*MuEff10[i])-(2*Znot*MuEff4[i]))/(t10-(2*Znot));
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_16[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -453,7 +536,9 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT15, Mu2)
             #Mu2sIT16[i] = numpy.average(temp, axis=0)
-            Mu2sIT16[i] = numpy.average([Mu2sIT15[i], Mu2])
+            Mu2sIT16[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i]])
+        
         
         if j == 16:
             Znot =  (ZnotsIT16[i]);
@@ -461,7 +546,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_17[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -471,7 +556,9 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT16, Mu2)
             #Mu2sIT17[i] = numpy.average(temp, axis=0)
-            Mu2sIT17[i] = numpy.average([Mu2sIT16[i], Mu2])
+            Mu2sIT17[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i]])
+        
         
         if j == 17:
             Znot =  (ZnotsIT17[i]);
@@ -479,7 +566,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_18[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -489,7 +576,10 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT17, Mu2)
             #Mu2sIT18[i] = numpy.average(temp, axis=0)
-            Mu2sIT18[i] = numpy.average([Mu2sIT17[i], Mu2])
+            Mu2sIT18[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i]])
+        
         
         if j == 18:
             Znot =  (ZnotsIT18[i]);
@@ -497,7 +587,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_19[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -507,7 +597,10 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT18, Mu2)
             #Mu2sIT19[i] = numpy.average(temp, axis=0)
-            Mu2sIT19[i] = numpy.average([Mu2sIT18[i], Mu2])
+            Mu2sIT19[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i]])
+        
         
         if j == 19:
             Znot =  (ZnotsIT19[i]);
@@ -515,7 +608,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_20[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -525,7 +618,10 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT19, Mu2)
             #Mu2sIT20[i] = numpy.average(temp, axis=0)
-            Mu2sIT20[i] = numpy.average([Mu2sIT19[i], Mu2])
+            Mu2sIT20[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i], Mu2_20[i]])
+        
         
         if j == 20:
             Znot =  (ZnotsIT20[i]);
@@ -533,7 +629,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_21[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -543,7 +639,10 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT20, Mu2)
             #Mu2sIT21[i] = numpy.average(temp, axis=0)
-            Mu2sIT21[i] = numpy.average([Mu2sIT20[i], Mu2])
+            Mu2sIT21[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i], Mu2_20[i], Mu2_21[i]])
+        
         
         if j == 21:
             Znot =  (ZnotsIT21[i]);
@@ -551,7 +650,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_22[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -561,7 +660,10 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT21, Mu2)
             #Mu2sIT22[i] = numpy.average(temp, axis=0)
-            Mu2sIT22[i] = numpy.average([Mu2sIT21[i], Mu2])
+            Mu2sIT22[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i], Mu2_20[i], Mu2_21[i], Mu2_22[i]])
+        
         
         if j == 22:
             Znot =  (ZnotsIT22[i]);
@@ -569,7 +671,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_23[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -579,7 +681,10 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT22, Mu2)
             #Mu2sIT23[i] = numpy.average(temp, axis=0)
-            Mu2sIT23[i] = numpy.average([Mu2sIT22[i], Mu2])
+            Mu2sIT23[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i], Mu2_20[i], Mu2_21[i], Mu2_22[i], Mu2_23[i]])
+        
         
         if j == 23:
             Znot =  (ZnotsIT23[i]);
@@ -587,7 +692,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_24[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -597,7 +702,10 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT23, Mu2)
             #Mu2sIT24[i] = numpy.average(temp, axis=0)
-            Mu2sIT24[i] = numpy.average([Mu2sIT23[i], Mu2])
+            Mu2sIT24[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i], Mu2_20[i], Mu2_21[i], Mu2_22[i], Mu2_23[i], Mu2_24[i]])
+        
         
         if j == 24:
             Znot =  (ZnotsIT24[i]);
@@ -605,7 +713,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_25[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -615,7 +723,10 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT24, Mu2)
             #Mu2sIT25[i] = numpy.average(temp, axis=0)
-            Mu2sIT25[i] = numpy.average([Mu2sIT24[i], Mu2])
+            Mu2sIT25[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i], Mu2_20[i], Mu2_21[i], Mu2_22[i], Mu2_23[i], Mu2_24[i], Mu2_25[i]])
+        
         
         if j == 25:
             Znot =  (ZnotsIT25[i]);
@@ -623,7 +734,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_26[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -633,7 +744,10 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT25, Mu2)
             #Mu2sIT26[i] = numpy.average(temp, axis=0)
-            Mu2sIT26[i] = numpy.average([Mu2sIT25[i], Mu2])
+            Mu2sIT26[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i], Mu2_20[i], Mu2_21[i], Mu2_22[i], Mu2_23[i], Mu2_24[i], Mu2_25[i], Mu2_26[i]])
+        
         
         if j == 26:
             Znot =  (ZnotsIT26[i]);
@@ -641,7 +755,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_27[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -651,7 +765,11 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT26, Mu2)
             #Mu2sIT27[i] = numpy.average(temp, axis=0)
-            Mu2sIT27[i] = numpy.average([Mu2sIT26[i], Mu2])
+            Mu2sIT27[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i], Mu2_20[i], Mu2_21[i], Mu2_22[i], Mu2_23[i], Mu2_24[i], Mu2_25[i], Mu2_26[i], 
+                                         Mu2_27[i]])
+        
         
         if j == 27:
             Znot =  (ZnotsIT27[i]);
@@ -659,7 +777,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_28[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -669,7 +787,11 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT27, Mu2)
             #Mu2sIT28[i] = numpy.average(temp, axis=0)
-            Mu2sIT28[i] = numpy.average([Mu2sIT27[i], Mu2])
+            Mu2sIT28[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i], Mu2_20[i], Mu2_21[i], Mu2_22[i], Mu2_23[i], Mu2_24[i], Mu2_25[i], Mu2_26[i], 
+                                         Mu2_27[i], Mu2_28[i]])
+        
         
         if j == 28:
             Znot =  (ZnotsIT28[i]);
@@ -677,7 +799,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_29[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -687,7 +809,11 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT28, Mu2)
             #Mu2sIT29[i] = numpy.average(temp, axis=0)
-            Mu2sIT29[i] = numpy.average([Mu2sIT28[i], Mu2])
+            Mu2sIT29[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i], Mu2_20[i], Mu2_21[i], Mu2_22[i], Mu2_23[i], Mu2_24[i], Mu2_25[i], Mu2_26[i], 
+                                         Mu2_27[i], Mu2_28[i], Mu2_29[i]])
+        
         
         if j == 29:
             Znot =  (ZnotsIT29[i]);
@@ -695,7 +821,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_30[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -705,7 +831,11 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT29, Mu2)
             #Mu2sIT30[i] = numpy.average(temp, axis=0)
-            Mu2sIT30[i] = numpy.average([Mu2sIT29[i], Mu2])
+            Mu2sIT30[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i], Mu2_20[i], Mu2_21[i], Mu2_22[i], Mu2_23[i], Mu2_24[i], Mu2_25[i], Mu2_26[i], 
+                                         Mu2_27[i], Mu2_28[i], Mu2_29[i], Mu2_30[i]])
+         
         
         if j == 30:
             Znot =  (ZnotsIT30[i]);
@@ -713,7 +843,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_31[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -723,7 +853,11 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT30, Mu2)
             #Mu2sIT31[i] = numpy.average(temp, axis=0)
-            Mu2sIT31[i] = numpy.average([Mu2sIT30[i], Mu2])
+            Mu2sIT31[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i], Mu2_20[i], Mu2_21[i], Mu2_22[i], Mu2_23[i], Mu2_24[i], Mu2_25[i], Mu2_26[i], 
+                                         Mu2_27[i], Mu2_28[i], Mu2_29[i], Mu2_30[i], Mu2_31[i]])
+         
         
         if j == 31:
             Znot =  (ZnotsIT31[i]);
@@ -731,7 +865,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_32[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -741,7 +875,11 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT31, Mu2)
             #Mu2sIT32[i] = numpy.average(temp, axis=0)
-            Mu2sIT32[i] = numpy.average([Mu2sIT31[i], Mu2])
+            Mu2sIT32[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i], Mu2_20[i], Mu2_21[i], Mu2_22[i], Mu2_23[i], Mu2_24[i], Mu2_25[i], Mu2_26[i], 
+                                         Mu2_27[i], Mu2_28[i], Mu2_29[i], Mu2_30[i], Mu2_31[i], Mu2_32[i]])
+         
         
         if j == 32:
             Znot =  (ZnotsIT32[i]);
@@ -749,7 +887,7 @@ for j in range (len(Iterations)):
 
             Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
 
-            Mu2  = (Mu2b + Mu2c)/2;
+            Mu2_33[i]  = (Mu2b + Mu2c)/2;
             
             #if Mu2 < 0:
             #    Mu2sIT101[i] = 0;
@@ -759,7 +897,11 @@ for j in range (len(Iterations)):
             #takes the average of previous iterations
             #temp = numpy.array(Mu2sIT32, Mu2)
             #Mu2sIT33[i] = numpy.average(temp, axis=0)
-            Mu2sIT33[i] = numpy.average([Mu2sIT32[i], Mu2])
+            Mu2sIT33[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i], Mu2_20[i], Mu2_21[i], Mu2_22[i], Mu2_23[i], Mu2_24[i], Mu2_25[i], Mu2_26[i], 
+                                         Mu2_27[i], Mu2_28[i], Mu2_29[i], Mu2_30[i], Mu2_31[i], Mu2_32[i], Mu2_33[i]])
+         
             
     for i in range(len(Waves)):
 
@@ -768,45 +910,45 @@ for j in range (len(Iterations)):
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT1[i]))/(2*(MuEff4[i]-Mu2sIT1[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_1[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT1[i] = Znot;
-            ZnotsIT1[i] = numpy.average([ZnotsIT0[i], Znot])
+            ZnotsIT1[i] = numpy.average([ZnotsIT0[i], Znot_1[i]])
  
         if j == 1:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT2[i]))/(2*(MuEff4[i]-Mu2sIT2[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT2[i]))/(2*(MuEff4[i]-Mu2sIT2[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_2[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT2[i] = Znot;
-            ZnotsIT2[i] = numpy.average([ZnotsIT1[i], Znot])
+            ZnotsIT2[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i]])
 
         if j == 2:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT3[i]))/(2*(MuEff4[i]-Mu2sIT3[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT3[i]))/(2*(MuEff4[i]-Mu2sIT3[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_3[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT3[i] = Znot;
-            ZnotsIT3[i] = numpy.average([ZnotsIT2[i], Znot])
+            ZnotsIT3[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i]])
 
         if j == 3:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT4[i]))/(2*(MuEff4[i]-Mu2sIT4[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT4[i]))/(2*(MuEff4[i]-Mu2sIT4[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_4[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT4[i] = Znot;
-            ZnotsIT4[i] = numpy.average([ZnotsIT3[i], Znot])
+            ZnotsIT4[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i]])
 
         if j == 4:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT5[i]))/(2*(MuEff4[i]-Mu2sIT5[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT5[i]))/(2*(MuEff4[i]-Mu2sIT5[i]));
                     
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_5[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT5[i] = Znot;
-            ZnotsIT5[i] = numpy.average([ZnotsIT4[i], Znot])
+            ZnotsIT5[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i]])
     
 
         if j == 5:
@@ -814,9 +956,9 @@ for j in range (len(Iterations)):
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT6[i]))/(2*(MuEff4[i]-Mu2sIT6[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_6[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT6[i] = Znot;
-            ZnotsIT6[i] = numpy.average([ZnotsIT5[i], Znot])
+            ZnotsIT6[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i]])
 
             
         if j == 6:
@@ -824,90 +966,98 @@ for j in range (len(Iterations)):
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT7[i]))/(2*(MuEff4[i]-Mu2sIT7[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_7[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT7[i] = Znot;
-            ZnotsIT7[i] = numpy.average([ZnotsIT6[i], Znot])
+            ZnotsIT7[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i]])
 
         if j == 7:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT8[i]))/(2*(MuEff4[i]-Mu2sIT8[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT8[i]))/(2*(MuEff4[i]-Mu2sIT8[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_8[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT8[i] = Znot;
-            ZnotsIT8[i] = numpy.average([ZnotsIT7[i], Znot])
+            ZnotsIT8[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i]])
 
         if j == 8:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT9[i]))/(2*(MuEff4[i]-Mu2sIT9[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT9[i]))/(2*(MuEff4[i]-Mu2sIT9[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_9[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT9[i] = Znot;
-            ZnotsIT9[i] = numpy.average([ZnotsIT8[i], Znot])
+            ZnotsIT9[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                         Znot_9[i]])
 
         if j == 9:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT10[i]))/(2*(MuEff4[i]-Mu2sIT10[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT10[i]))/(2*(MuEff4[i]-Mu2sIT10[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_10[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT10[i] = Znot;
-            ZnotsIT10[i] = numpy.average([ZnotsIT9[i], Znot])
+            ZnotsIT10[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i]])
 
         if j == 10:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT11[i]))/(2*(MuEff4[i]-Mu2sIT11[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT11[i]))/(2*(MuEff4[i]-Mu2sIT11[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_11[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT11[i] = Znot;
-            ZnotsIT11[i] = numpy.average([ZnotsIT10[i], Znot])
+            ZnotsIT11[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i]])
 
         if j == 11:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT12[i]))/(2*(MuEff4[i]-Mu2sIT12[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT12[i]))/(2*(MuEff4[i]-Mu2sIT12[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_12[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT12[i] = Znot;
-            ZnotsIT12[i] = numpy.average([ZnotsIT11[i], Znot])
+            ZnotsIT12[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i]])
 
         if j == 12:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT13[i]))/(2*(MuEff4[i]-Mu2sIT13[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT13[i]))/(2*(MuEff4[i]-Mu2sIT13[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_13[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT13[i] = Znot;
-            ZnotsIT13[i] = numpy.average([ZnotsIT12[i], Znot])
+            ZnotsIT13[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i]])
 
         if j == 13:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT14[i]))/(2*(MuEff4[i]-Mu2sIT14[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT14[i]))/(2*(MuEff4[i]-Mu2sIT14[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_14[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT14[i] = Znot;
-            ZnotsIT14[i] = numpy.average([ZnotsIT13[i], Znot])
+            ZnotsIT14[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i]])
 
         if j == 14:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT15[i]))/(2*(MuEff4[i]-Mu2sIT15[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT15[i]))/(2*(MuEff4[i]-Mu2sIT15[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_15[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT15[i] = Znot;
-            ZnotsIT15[i] = numpy.average([ZnotsIT14[i], Znot])
+            ZnotsIT15[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i]])
 
         if j == 15:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT16[i]))/(2*(MuEff4[i]-Mu2sIT16[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT16[i]))/(2*(MuEff4[i]-Mu2sIT16[i]));
                     
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_16[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT16[i] = Znot;
-            ZnotsIT16[i] = numpy.average([ZnotsIT15[i], Znot])
+            ZnotsIT16[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i]])
     
 
         if j == 16:
@@ -915,98 +1065,121 @@ for j in range (len(Iterations)):
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT17[i]))/(2*(MuEff4[i]-Mu2sIT17[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_17[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT17[i] = Znot;
-            ZnotsIT17[i] = numpy.average([ZnotsIT16[i], Znot])
+            ZnotsIT17[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i]])
 
         if j == 17:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT18[i]))/(2*(MuEff4[i]-Mu2sIT18[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT18[i]))/(2*(MuEff4[i]-Mu2sIT18[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_18[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT18[i] = Znot;
-            ZnotsIT18[i] = numpy.average([ZnotsIT17[i], Znot])
+            ZnotsIT18[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i]])
 
         if j == 18:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT19[i]))/(2*(MuEff4[i]-Mu2sIT19[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT19[i]))/(2*(MuEff4[i]-Mu2sIT19[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_19[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT19[i] = Znot;
-            ZnotsIT19[i] = numpy.average([ZnotsIT8[i], Znot])
+            ZnotsIT19[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i]])
 
         if j == 19:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT20[i]))/(2*(MuEff4[i]-Mu2sIT20[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT20[i]))/(2*(MuEff4[i]-Mu2sIT20[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_20[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT20[i] = Znot;
-            ZnotsIT20[i] = numpy.average([ZnotsIT19[i], Znot])
+            ZnotsIT20[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i], Znot_20[i]])
 
         if j == 20:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT21[i]))/(2*(MuEff4[i]-Mu2sIT21[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT21[i]))/(2*(MuEff4[i]-Mu2sIT21[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_21[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT21[i] = Znot;
-            ZnotsIT21[i] = numpy.average([ZnotsIT20[i], Znot])
+            ZnotsIT21[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i]])
 
         if j == 21:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT22[i]))/(2*(MuEff4[i]-Mu2sIT22[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT22[i]))/(2*(MuEff4[i]-Mu2sIT22[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_22[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT22[i] = Znot;
-            ZnotsIT22[i] = numpy.average([ZnotsIT21[i], Znot])
+            ZnotsIT22[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i]])
+
         if j == 22:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT23[i]))/(2*(MuEff4[i]-Mu2sIT23[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT23[i]))/(2*(MuEff4[i]-Mu2sIT23[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_23[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT23[i] = Znot;
-            ZnotsIT23[i] = numpy.average([ZnotsIT22[i], Znot])
+            ZnotsIT23[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i]])
 
         if j == 23:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT24[i]))/(2*(MuEff4[i]-Mu2sIT24[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT24[i]))/(2*(MuEff4[i]-Mu2sIT24[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_24[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT24[i] = Znot;
-            ZnotsIT24[i] = numpy.average([ZnotsIT23[i], Znot])
+            ZnotsIT24[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i]])
 
         if j == 24:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT25[i]))/(2*(MuEff4[i]-Mu2sIT25[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT25[i]))/(2*(MuEff4[i]-Mu2sIT25[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_25[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT25[i] = Znot;
-            ZnotsIT25[i] = numpy.average([ZnotsIT24[i], Znot])
+            ZnotsIT25[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i]])
 
         if j == 25:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT26[i]))/(2*(MuEff4[i]-Mu2sIT26[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT26[i]))/(2*(MuEff4[i]-Mu2sIT26[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_26[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT26[i] = Znot;
-            ZnotsIT26[i] = numpy.average([ZnotsIT25[i], Znot])
+            ZnotsIT26[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i]])
 
         if j == 26:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT27[i]))/(2*(MuEff4[i]-Mu2sIT27[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT27[i]))/(2*(MuEff4[i]-Mu2sIT27[i]));
                     
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_27[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT27[i] = Znot;
-            ZnotsIT27[i] = numpy.average([ZnotsIT26[i], Znot])
+            ZnotsIT27[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i], 
+                                          Znot_27[i]])
     
 
         if j == 27:
@@ -1014,54 +1187,72 @@ for j in range (len(Iterations)):
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT28[i]))/(2*(MuEff4[i]-Mu2sIT28[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_28[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT28[i] = Znot;
-            ZnotsIT28[i] = numpy.average([ZnotsIT27[i], Znot])
+            ZnotsIT28[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i], 
+                                          Znot_27[i], Znot_28[i]])
             
         if j == 28:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT29[i]))/(2*(MuEff4[i]-Mu2sIT29[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT29[i]))/(2*(MuEff4[i]-Mu2sIT29[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_29[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT29[i] = Znot;
-            ZnotsIT29[i] = numpy.average([ZnotsIT28[i], Znot])
+            ZnotsIT29[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i], 
+                                          Znot_27[i], Znot_28[i], Znot_29[i]])
 
         if j == 29:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT30[i]))/(2*(MuEff4[i]-Mu2sIT30[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT30[i]))/(2*(MuEff4[i]-Mu2sIT30[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_30[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT30[i] = Znot;
-            ZnotsIT30[i] = numpy.average([ZnotsIT29[i], Znot])
+            ZnotsIT30[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i], 
+                                          Znot_27[i], Znot_28[i], Znot_29[i], Znot_30[i]])
 
         if j == 30:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT31[i]))/(2*(MuEff4[i]-Mu2sIT31[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT31[i]))/(2*(MuEff4[i]-Mu2sIT31[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_31[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT31[i] = Znot;
-            ZnotsIT31[i] = numpy.average([ZnotsIT30[i], Znot])
+            ZnotsIT31[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i], 
+                                          Znot_27[i], Znot_28[i], Znot_29[i], Znot_30[i], Znot_31[i]])
 
         if j == 31:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT32[i]))/(2*(MuEff4[i]-Mu2sIT32[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT32[i]))/(2*(MuEff4[i]-Mu2sIT32[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_32[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT32[i] = Znot;
-            ZnotsIT32[i] = numpy.average([ZnotsIT31[i], Znot])
+            ZnotsIT32[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i], 
+                                          Znot_27[i], Znot_28[i], Znot_29[i], Znot_30[i], Znot_31[i], Znot_32[i]])
 
         if j == 32:
             ZnotB = (t6*(MuEff6[i]-Mu2sIT33[i]))/(2*(MuEff4[i]-Mu2sIT33[i]));
    
             ZnotC = (t10*(MuEff10[i]-Mu2sIT33[i]))/(2*(MuEff4[i]-Mu2sIT33[i]));
 
-            Znot  = (ZnotB + ZnotC)/2;
+            Znot_33[i]  = (ZnotB + ZnotC)/2;
             #ZnotsIT33[i] = Znot;
-            ZnotsIT33[i] = numpy.average([ZnotsIT32[i], Znot])
+            ZnotsIT33[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i], 
+                                          Znot_27[i], Znot_28[i], Znot_29[i], Znot_30[i], Znot_31[i], Znot_32[i], Znot_33[i]])
 
 #print parameter values
 print 'Wavelength \t\tMu2sIT0 \t\tMu2sIT1 \t\tMu2sIT2 \t\tMu2sIT3 \t\tMu2sIT4 \t\tMu2sIT5 \t\tMu2sIT6 \t\tMu2sIT7 \t\tMu2sIT8 \t\tMu2sIT9 \t\tMu2sIT10 \t\tMu2sIT11 \t\tMu2sIT12 \t\tMu2sIT13 \t\tMu2sIT14 \t\tMu2sIT15 \t\tMu2sIT16 \t\tMu2sIT17 \t\tMu2sIT18 \t\tMu2sIT19 \t\tMu2sIT20 \t\tMu2sIT21 \t\tMu2sIT22 \t\tMu2sIT23 \t\tMu2sIT24 \t\tMu2sIT25 \t\tMu2sIT26 \t\tMu2sIT27 \t\tMu2sIT28 \t\tMu2sIT29 \t\tMu2sIT30 \t\tMu2sIT31 \t\tMu2sIT32 \t\tMu2sIT33 \t\tZnotsIT0 \t\tZnotsIT1 \t\tZnotsIT2 \t\tZnotsIT3 \t\tZnotsIT4 \t\tZnotsIT5 \t\tZnotsIT6 \t\tZnotsIT7 \t\tZnotsIT8 \t\tZnotsIT9 \t\tZnotsIT10 \t\tZnotsIT11 \t\tZnotsIT12 \t\tZnotsIT13 \t\tZnotsIT14 \t\tZnotsIT15 \t\tZnotsIT16 \t\tZnotsIT17 \t\tZnotsIT18 \t\tZnotsIT19 \t\tZnotsIT20 \t\tZnotsIT21 \t\tZnotsIT22 \t\tZnotsIT23 \t\tZnotsIT24 \t\tZnotsIT25 \t\tZnotsIT26 \t\tZnotsIT27 \t\tZnotsIT28 \t\tZnotsIT29 \t\tZnotsIT30 \t\tZnotsIT31 \t\tZnotsIT32 \t\tZnotsIT33'
