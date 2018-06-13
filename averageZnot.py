@@ -115,6 +115,11 @@ Mu2_30    = [None]*91;
 Mu2_31    = [None]*91;
 Mu2_32    = [None]*91;
 Mu2_33    = [None]*91
+Mu2_34    = [None]*91
+Mu2_35    = [None]*91
+Mu2_36    = [None]*91
+Mu2_37    = [None]*91
+
 
 Znot_1     = [None]*91;
 Znot_2     = [None]*91;
@@ -149,6 +154,10 @@ Znot_30    = [None]*91;
 Znot_31    = [None]*91;
 Znot_32    = [None]*91;
 Znot_33    = [None]*91;
+Znot_34    = [None]*91
+Znot_35    = [None]*91
+Znot_36    = [None]*91
+Znot_37    = [None]*91
 
 Mu2sIT0   = [None]*91;
 Mu2sIT1   = [None]*91;
@@ -185,6 +194,10 @@ Mu2sIT30  = [None]*91;
 Mu2sIT31  = [None]*91;
 Mu2sIT32  = [None]*91;
 Mu2sIT33  = [None]*91;
+Mu2sIT34  = [None]*91
+Mu2sIT35  = [None]*91
+Mu2sIT36  = [None]*91
+Mu2sIT37  = [None]*91
 
 ZnotsIT0  = [None]*91
 ZnotsIT1  = [None]*91;
@@ -220,12 +233,16 @@ ZnotsIT30 = [None]*91;
 ZnotsIT31 = [None]*91;
 ZnotsIT32 = [None]*91;
 ZnotsIT33 = [None]*91;
+ZnotsIT34 = [None]*91
+ZnotsIT35 = [None]*91
+ZnotsIT36 = [None]*91
+ZnotsIT37 = [None]*91
 
 for i in range (len(Waves)):
     ZnotsIT0[i] = (t6*t10*(MuEff6[i]-MuEff10[i]))/(2*((MuEff6[i]*t6-MuEff10[i]*t10+MuEff4[i]*(t10-t6))));
     Mu2sIT0[i]  = (MuEff6[i]*t6-MuEff10[i]*t10)/(t6-t10);
     
-Iterations = list(range(34));
+Iterations = list(range(37));
 #loop over iterations
 for j in range (len(Iterations)):
 
@@ -902,7 +919,95 @@ for j in range (len(Iterations)):
                                          Mu2_18[i], Mu2_19[i], Mu2_20[i], Mu2_21[i], Mu2_22[i], Mu2_23[i], Mu2_24[i], Mu2_25[i], Mu2_26[i], 
                                          Mu2_27[i], Mu2_28[i], Mu2_29[i], Mu2_30[i], Mu2_31[i], Mu2_32[i], Mu2_33[i]])
          
+        
+        if j == 33:
+            Znot =  (ZnotsIT33[i]);
+            Mu2c = ((t10*MuEff10[i])-(2*Znot*MuEff4[i]))/(t10-(2*Znot));
+
+            Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
+
+            Mu2_34[i]  = (Mu2b + Mu2c)/2;
             
+            #if Mu2 < 0:
+            #    Mu2sIT101[i] = 0;
+            #else:
+            #Mu2sIT33[i] = Mu2;
+
+            #takes the average of previous iterations
+            #temp = numpy.array(Mu2sIT32, Mu2)
+            #Mu2sIT33[i] = numpy.average(temp, axis=0)
+            Mu2sIT34[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i], Mu2_20[i], Mu2_21[i], Mu2_22[i], Mu2_23[i], Mu2_24[i], Mu2_25[i], Mu2_26[i], 
+                                         Mu2_27[i], Mu2_28[i], Mu2_29[i], Mu2_30[i], Mu2_31[i], Mu2_32[i], Mu2_33[i], Mu2_34[i]])
+         
+        if j == 34:
+            Znot =  (ZnotsIT34[i]);
+            Mu2c = ((t10*MuEff10[i])-(2*Znot*MuEff4[i]))/(t10-(2*Znot));
+
+            Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
+
+            Mu2_35[i]  = (Mu2b + Mu2c)/2;
+            
+            #if Mu2 < 0:
+            #    Mu2sIT101[i] = 0;
+            #else:
+            #Mu2sIT33[i] = Mu2;
+
+            #takes the average of previous iterations
+            #temp = numpy.array(Mu2sIT32, Mu2)
+            #Mu2sIT33[i] = numpy.average(temp, axis=0)
+            Mu2sIT35[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i], Mu2_20[i], Mu2_21[i], Mu2_22[i], Mu2_23[i], Mu2_24[i], Mu2_25[i], Mu2_26[i], 
+                                         Mu2_27[i], Mu2_28[i], Mu2_29[i], Mu2_30[i], Mu2_31[i], Mu2_32[i], Mu2_33[i], Mu2_34[i], Mu2_35[i]])
+         
+                     
+        if j == 35:
+            Znot =  (ZnotsIT35[i]);
+            Mu2c = ((t10*MuEff10[i])-(2*Znot*MuEff4[i]))/(t10-(2*Znot));
+
+            Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
+
+            Mu2_36[i]  = (Mu2b + Mu2c)/2;
+            
+            #if Mu2 < 0:
+            #    Mu2sIT101[i] = 0;
+            #else:
+            #Mu2sIT33[i] = Mu2;
+
+            #takes the average of previous iterations
+            #temp = numpy.array(Mu2sIT32, Mu2)
+            #Mu2sIT33[i] = numpy.average(temp, axis=0)
+            Mu2sIT36[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i], Mu2_20[i], Mu2_21[i], Mu2_22[i], Mu2_23[i], Mu2_24[i], Mu2_25[i], Mu2_26[i], 
+                                         Mu2_27[i], Mu2_28[i], Mu2_29[i], Mu2_30[i], Mu2_31[i], Mu2_32[i], Mu2_33[i], Mu2_34[i], Mu2_35[i], 
+                                         Mu2_36[i]])
+         
+        if j == 36:
+            Znot =  (ZnotsIT36[i]);
+            Mu2c = ((t10*MuEff10[i])-(2*Znot*MuEff4[i]))/(t10-(2*Znot));
+
+            Mu2b = ((t6*MuEff6[i])-(2*Znot*MuEff4[i]))/(t6-(2*Znot));
+
+            Mu2_37[i]  = (Mu2b + Mu2c)/2;
+            
+            #if Mu2 < 0:
+            #    Mu2sIT101[i] = 0;
+            #else:
+            #Mu2sIT33[i] = Mu2;
+
+            #takes the average of previous iterations
+            #temp = numpy.array(Mu2sIT32, Mu2)
+            #Mu2sIT33[i] = numpy.average(temp, axis=0)
+            Mu2sIT37[i] = numpy.average([Mu2sIT0[i], Mu2_1[i], Mu2_2[i], Mu2_3[i], Mu2_4[i], Mu2_5[i], Mu2_6[i], Mu2_7[i], Mu2_8[i], 
+                                         Mu2_9[i], Mu2_10[i], Mu2_11[i], Mu2_12[i], Mu2_13[i], Mu2_14[i], Mu2_15[i], Mu2_16[i], Mu2_17[i], 
+                                         Mu2_18[i], Mu2_19[i], Mu2_20[i], Mu2_21[i], Mu2_22[i], Mu2_23[i], Mu2_24[i], Mu2_25[i], Mu2_26[i], 
+                                         Mu2_27[i], Mu2_28[i], Mu2_29[i], Mu2_30[i], Mu2_31[i], Mu2_32[i], Mu2_33[i], Mu2_34[i], Mu2_35[i], 
+                                         Mu2_36[i], Mu2_37[i]])
+         
+                        
     for i in range(len(Waves)):
 
         if j == 0:
@@ -1153,7 +1258,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT25[i]))/(2*(MuEff4[i]-Mu2sIT25[i]));
 
             Znot_25[i]  = (ZnotB + ZnotC)/2;
-            #ZnotsIT25[i] = Znot;
+            
             ZnotsIT25[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
                                           Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
                                           Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i]])
@@ -1164,7 +1269,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT26[i]))/(2*(MuEff4[i]-Mu2sIT26[i]));
 
             Znot_26[i]  = (ZnotB + ZnotC)/2;
-            #ZnotsIT26[i] = Znot;
+            
             ZnotsIT26[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
                                           Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
                                           Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i]])
@@ -1175,7 +1280,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT27[i]))/(2*(MuEff4[i]-Mu2sIT27[i]));
                     
             Znot_27[i]  = (ZnotB + ZnotC)/2;
-            #ZnotsIT27[i] = Znot;
+            
             ZnotsIT27[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
                                           Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
                                           Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i], 
@@ -1188,7 +1293,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT28[i]))/(2*(MuEff4[i]-Mu2sIT28[i]));
 
             Znot_28[i]  = (ZnotB + ZnotC)/2;
-            #ZnotsIT28[i] = Znot;
+           
             ZnotsIT28[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
                                           Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
                                           Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i], 
@@ -1200,7 +1305,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT29[i]))/(2*(MuEff4[i]-Mu2sIT29[i]));
 
             Znot_29[i]  = (ZnotB + ZnotC)/2;
-            #ZnotsIT29[i] = Znot;
+           
             ZnotsIT29[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
                                           Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
                                           Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i], 
@@ -1212,7 +1317,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT30[i]))/(2*(MuEff4[i]-Mu2sIT30[i]));
 
             Znot_30[i]  = (ZnotB + ZnotC)/2;
-            #ZnotsIT30[i] = Znot;
+           
             ZnotsIT30[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
                                           Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
                                           Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i], 
@@ -1224,7 +1329,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT31[i]))/(2*(MuEff4[i]-Mu2sIT31[i]));
 
             Znot_31[i]  = (ZnotB + ZnotC)/2;
-            #ZnotsIT31[i] = Znot;
+           
             ZnotsIT31[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
                                           Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
                                           Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i], 
@@ -1236,7 +1341,7 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT32[i]))/(2*(MuEff4[i]-Mu2sIT32[i]));
 
             Znot_32[i]  = (ZnotB + ZnotC)/2;
-            #ZnotsIT32[i] = Znot;
+
             ZnotsIT32[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
                                           Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
                                           Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i], 
@@ -1248,14 +1353,62 @@ for j in range (len(Iterations)):
             ZnotC = (t10*(MuEff10[i]-Mu2sIT33[i]))/(2*(MuEff4[i]-Mu2sIT33[i]));
 
             Znot_33[i]  = (ZnotB + ZnotC)/2;
-            #ZnotsIT33[i] = Znot;
+
             ZnotsIT33[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
                                           Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
                                           Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i], 
                                           Znot_27[i], Znot_28[i], Znot_29[i], Znot_30[i], Znot_31[i], Znot_32[i], Znot_33[i]])
 
-#print parameter values
-print 'Wavelength \t\tMu2sIT0 \t\tMu2sIT1 \t\tMu2sIT2 \t\tMu2sIT3 \t\tMu2sIT4 \t\tMu2sIT5 \t\tMu2sIT6 \t\tMu2sIT7 \t\tMu2sIT8 \t\tMu2sIT9 \t\tMu2sIT10 \t\tMu2sIT11 \t\tMu2sIT12 \t\tMu2sIT13 \t\tMu2sIT14 \t\tMu2sIT15 \t\tMu2sIT16 \t\tMu2sIT17 \t\tMu2sIT18 \t\tMu2sIT19 \t\tMu2sIT20 \t\tMu2sIT21 \t\tMu2sIT22 \t\tMu2sIT23 \t\tMu2sIT24 \t\tMu2sIT25 \t\tMu2sIT26 \t\tMu2sIT27 \t\tMu2sIT28 \t\tMu2sIT29 \t\tMu2sIT30 \t\tMu2sIT31 \t\tMu2sIT32 \t\tMu2sIT33 \t\tZnotsIT0 \t\tZnotsIT1 \t\tZnotsIT2 \t\tZnotsIT3 \t\tZnotsIT4 \t\tZnotsIT5 \t\tZnotsIT6 \t\tZnotsIT7 \t\tZnotsIT8 \t\tZnotsIT9 \t\tZnotsIT10 \t\tZnotsIT11 \t\tZnotsIT12 \t\tZnotsIT13 \t\tZnotsIT14 \t\tZnotsIT15 \t\tZnotsIT16 \t\tZnotsIT17 \t\tZnotsIT18 \t\tZnotsIT19 \t\tZnotsIT20 \t\tZnotsIT21 \t\tZnotsIT22 \t\tZnotsIT23 \t\tZnotsIT24 \t\tZnotsIT25 \t\tZnotsIT26 \t\tZnotsIT27 \t\tZnotsIT28 \t\tZnotsIT29 \t\tZnotsIT30 \t\tZnotsIT31 \t\tZnotsIT32 \t\tZnotsIT33'
 
-for w,m0,m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12,m13,m14,m15,m16,m17,m18,m19,m20,m21,m22,m23,m24,m25,m26,m27,m28,m29,m30,m31,m32,m33,z0,z1,z2,z3,z4,z5,z6,z7,z8,z9,z10,z11,z12,z13,z14,z15,z16,z17,z18,z19,z20,z21,z22,z23,z24,z25,z26,z27,z28,z29,z30,z31,z32,z33 in zip(Waves,Mu2sIT0,Mu2sIT1,Mu2sIT2,Mu2sIT3,Mu2sIT4,Mu2sIT5,Mu2sIT6,Mu2sIT7,Mu2sIT8,Mu2sIT9,Mu2sIT10,Mu2sIT11,Mu2sIT12,Mu2sIT13,Mu2sIT14,Mu2sIT15,Mu2sIT16,Mu2sIT17,Mu2sIT18,Mu2sIT19,Mu2sIT20,Mu2sIT21,Mu2sIT22,Mu2sIT23,Mu2sIT24,Mu2sIT25,Mu2sIT26,Mu2sIT27,Mu2sIT28,Mu2sIT29,Mu2sIT30,Mu2sIT31,Mu2sIT32,Mu2sIT33,ZnotsIT0,ZnotsIT1,ZnotsIT2,ZnotsIT3,ZnotsIT4,ZnotsIT5,ZnotsIT6,ZnotsIT7,ZnotsIT8,ZnotsIT9,ZnotsIT10,ZnotsIT11,ZnotsIT12,ZnotsIT13,ZnotsIT14,ZnotsIT15,ZnotsIT16,ZnotsIT17,ZnotsIT18,ZnotsIT19,ZnotsIT20,ZnotsIT21,ZnotsIT22,ZnotsIT23,ZnotsIT24,ZnotsIT25,ZnotsIT26,ZnotsIT27,ZnotsIT28,ZnotsIT29,ZnotsIT30,ZnotsIT31,ZnotsIT32,ZnotsIT33):
-    print "%.3f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f\t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f" % ( w,m0,m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12,m13,m14,m15,m16,m17,m18,m19,m20,m21,m22,m23,m24,m25,m26,m27,m28,m29,m30,m31,m32,m33,z0,z1,z2,z3,z4,z5,z6,z7,z8,z9,z10,z11,z12,z13,z14,z15,z16,z17,z18,z19,z20,z21,z22,z23,z24,z25,z26,z27,z28,z29,z30,z31,z32,z33)
+        if j == 33:
+            ZnotB = (t6*(MuEff6[i]-Mu2sIT34[i]))/(2*(MuEff4[i]-Mu2sIT34[i]));
+   
+            ZnotC = (t10*(MuEff10[i]-Mu2sIT34[i]))/(2*(MuEff4[i]-Mu2sIT34[i]));
+
+            Znot_34[i]  = (ZnotB + ZnotC)/2;
+           
+            ZnotsIT34[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i], 
+                                          Znot_27[i], Znot_28[i], Znot_29[i], Znot_30[i], Znot_31[i], Znot_32[i], Znot_33[i], Znot_34[i]])
+        if j == 34:
+            ZnotB = (t6*(MuEff6[i]-Mu2sIT35[i]))/(2*(MuEff4[i]-Mu2sIT35[i]));
+   
+            ZnotC = (t10*(MuEff10[i]-Mu2sIT35[i]))/(2*(MuEff4[i]-Mu2sIT35[i]));
+
+            Znot_35[i]  = (ZnotB + ZnotC)/2;
+           
+            ZnotsIT35[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i], 
+                                          Znot_27[i], Znot_28[i], Znot_29[i], Znot_30[i], Znot_31[i], Znot_32[i], Znot_33[i], Znot_34[i], Znot_35[i]])
+        if j == 35:
+            ZnotB = (t6*(MuEff6[i]-Mu2sIT36[i]))/(2*(MuEff4[i]-Mu2sIT36[i]));
+   
+            ZnotC = (t10*(MuEff10[i]-Mu2sIT36[i]))/(2*(MuEff4[i]-Mu2sIT36[i]));
+
+            Znot_36[i]  = (ZnotB + ZnotC)/2;
+           
+            ZnotsIT36[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i], 
+                                          Znot_27[i], Znot_28[i], Znot_29[i], Znot_30[i], Znot_31[i], Znot_32[i], Znot_33[i], Znot_34[i], Znot_35[i],
+                                          Znot_36[i]])
+        if j == 36:
+            ZnotB = (t6*(MuEff6[i]-Mu2sIT37[i]))/(2*(MuEff4[i]-Mu2sIT37[i]));
+   
+            ZnotC = (t10*(MuEff10[i]-Mu2sIT37[i]))/(2*(MuEff4[i]-Mu2sIT37[i]));
+
+            Znot_37[i]  = (ZnotB + ZnotC)/2;
+            
+            ZnotsIT37[i] = numpy.average([ZnotsIT0[i], Znot_1[i], Znot_2[i], Znot_3[i], Znot_4[i], Znot_5[i], Znot_6[i], Znot_7[i], Znot_8[i], 
+                                          Znot_9[i], Znot_10[i], Znot_11[i], Znot_12[i], Znot_13[i], Znot_14[i], Znot_15[i], Znot_16[i], Znot_17[i], 
+                                          Znot_18[i], Znot_19[i], Znot_20[i], Znot_21[i], Znot_22[i], Znot_23[i], Znot_24[i], Znot_25[i], Znot_26[i], 
+                                          Znot_27[i], Znot_28[i], Znot_29[i], Znot_30[i], Znot_31[i], Znot_32[i], Znot_33[i], Znot_34[i], Znot_35[i],
+                                          Znot_36[i], Znot_37[i]])
+
+#print parameter values
+print 'Wavelength \t\tMu2sIT0 \t\tMu2sIT1 \t\tMu2sIT2 \t\tMu2sIT3 \t\tMu2sIT4 \t\tMu2sIT5 \t\tMu2sIT6 \t\tMu2sIT7 \t\tMu2sIT8 \t\tMu2sIT9 \t\tMu2sIT10 \t\tMu2sIT11 \t\tMu2sIT12 \t\tMu2sIT13 \t\tMu2sIT14 \t\tMu2sIT15 \t\tMu2sIT16 \t\tMu2sIT17 \t\tMu2sIT18 \t\tMu2sIT19 \t\tMu2sIT20 \t\tMu2sIT21 \t\tMu2sIT22 \t\tMu2sIT23 \t\tMu2sIT24 \t\tMu2sIT25 \t\tMu2sIT26 \t\tMu2sIT27 \t\tMu2sIT28 \t\tMu2sIT29 \t\tMu2sIT30 \t\tMu2sIT31 \t\tMu2sIT32 \t\tMu2sIT33 \t\tMu2sIT34 \t\tMu2sIT35 \t\tMu2sIT36 \t\tMu2sIT37 \t\tZnotsIT0 \t\tZnotsIT1 \t\tZnotsIT2 \t\tZnotsIT3 \t\tZnotsIT4 \t\tZnotsIT5 \t\tZnotsIT6 \t\tZnotsIT7 \t\tZnotsIT8 \t\tZnotsIT9 \t\tZnotsIT10 \t\tZnotsIT11 \t\tZnotsIT12 \t\tZnotsIT13 \t\tZnotsIT14 \t\tZnotsIT15 \t\tZnotsIT16 \t\tZnotsIT17 \t\tZnotsIT18 \t\tZnotsIT19 \t\tZnotsIT20 \t\tZnotsIT21 \t\tZnotsIT22 \t\tZnotsIT23 \t\tZnotsIT24 \t\tZnotsIT25 \t\tZnotsIT26 \t\tZnotsIT27 \t\tZnotsIT28 \t\tZnotsIT29 \t\tZnotsIT30 \t\tZnotsIT31 \t\tZnotsIT32 \t\tZnotsIT33 \t\tZnotsIT34 \t\tZnotsIT35 \t\tZnotsIT36 \t\tZnotsIT37'
+
+for w,m0,m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12,m13,m14,m15,m16,m17,m18,m19,m20,m21,m22,m23,m24,m25,m26,m27,m28,m29,m30,m31,m32,m33,m34,m35,m36,m37,z0,z1,z2,z3,z4,z5,z6,z7,z8,z9,z10,z11,z12,z13,z14,z15,z16,z17,z18,z19,z20,z21,z22,z23,z24,z25,z26,z27,z28,z29,z30,z31,z32,z33,z34,z35,z36,z37 in zip(Waves,Mu2sIT0,Mu2sIT1,Mu2sIT2,Mu2sIT3,Mu2sIT4,Mu2sIT5,Mu2sIT6,Mu2sIT7,Mu2sIT8,Mu2sIT9,Mu2sIT10,Mu2sIT11,Mu2sIT12,Mu2sIT13,Mu2sIT14,Mu2sIT15,Mu2sIT16,Mu2sIT17,Mu2sIT18,Mu2sIT19,Mu2sIT20,Mu2sIT21,Mu2sIT22,Mu2sIT23,Mu2sIT24,Mu2sIT25,Mu2sIT26,Mu2sIT27,Mu2sIT28,Mu2sIT29,Mu2sIT30,Mu2sIT31,Mu2sIT32,Mu2sIT33,Mu2sIT34,Mu2sIT35,Mu2sIT36,Mu2sIT37,ZnotsIT0,ZnotsIT1,ZnotsIT2,ZnotsIT3,ZnotsIT4,ZnotsIT5,ZnotsIT6,ZnotsIT7,ZnotsIT8,ZnotsIT9,ZnotsIT10,ZnotsIT11,ZnotsIT12,ZnotsIT13,ZnotsIT14,ZnotsIT15,ZnotsIT16,ZnotsIT17,ZnotsIT18,ZnotsIT19,ZnotsIT20,ZnotsIT21,ZnotsIT22,ZnotsIT23,ZnotsIT24,ZnotsIT25,ZnotsIT26,ZnotsIT27,ZnotsIT28,ZnotsIT29,ZnotsIT30,ZnotsIT31,ZnotsIT32,ZnotsIT33,ZnotsIT34,ZnotsIT35,ZnotsIT36,ZnotsIT37):
+    print "%.3f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f\t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f \t\t%.5f" % ( w,m0,m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12,m13,m14,m15,m16,m17,m18,m19,m20,m21,m22,m23,m24,m25,m26,m27,m28,m29,m30,m31,m32,m33,m34,m35,m36,m37,z0,z1,z2,z3,z4,z5,z6,z7,z8,z9,z10,z11,z12,z13,z14,z15,z16,z17,z18,z19,z20,z21,z22,z23,z24,z25,z26,z27,z28,z29,z30,z31,z32,z33,z34,z35,z36,z37)
