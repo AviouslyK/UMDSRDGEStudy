@@ -9,17 +9,17 @@ import numpy as np
 
 JobTime = datetime.now()
 fTag = JobTime.strftime("%Y%m%d_%H%M%S")
-sTag = "FitSimulation150mm"
+sTag = "8mm_Fit"
 dirname = "jobs/%s_%s"%(sTag,fTag)
 DetType = "1" #rod
-logFile = "1128.log"
+logFile = "0705.log"
 
 try:
     os.makedirs(dirname)
 except:
     pass
 
-ProdTag = "Run1_20171128"
+ProdTag = "Run1_20180705"
 OutDir  = "/home/kahn/PhysHonr268n/CMSSW_5_3_30/Research/G4/honrgeant/UMDSRDGEStudy-build/Absdata"
 WorkDir = "/home/kahn/PhysHonr268n/CMSSW_5_3_30/Research/G4/honrgeant/UMDSRDGEStudy-build/"
 
@@ -64,20 +64,22 @@ Queue 1
 #################################################################
 
 #starting and ending wavelenght
-#Initial = 3.5424
+#Initial = 3.0240
 
-#Final = 2.1752
+#Final = 2.5564
 
-#waveNUM = 25
+#waveNUM = 50
 
 #array that contains the different wavelengths being tested                          
-#Arr = [3.5424, 3.4925, 3.4440, 3.3968, 3.3509, 3.3062, 3.2627, 3.2204,
-#       3.1791, 3.1388, 3.0996, 3.0613, 3.0240, 2.9876, 2.9520, 2.9173,
-#       2.8834, 2.8502, 2.8178, 2.7862, 2.7552, 2.7249, 2.6953, 2.6663,
-#       2.6380, 2.6102, 2.5830, 2.5564, 2.5303, 2.5047, 2.4797, 2.4551, 
-#       2.4311, 2.4075, 2.3843, 2.3616, 2.3393, 2.3175, 2.2960, 2.2749, 
-#       2.2543, 2.2339, 2.2140, 2.1944, 2.1752, 2.1562, 2.1377, 2.1194, 
-#       2.1014, 2.0838, 2.0664];
+#Arr = [3.0240, 3.0166, 3.0093, 3.0020, 2.9948, 2.9876, 2.9804, 2.9732, 2.9661, 2.9591, 
+#       2.9520, 2.9450, 2.9380, 2.9311, 2.9242, 2.9173, 2.9104, 2.9036, 2.8968, 2.8901, 
+#       2.8834, 2.8767, 2.8700, 2.8634, 2.8568, 2.8502, 2.8437, 2.8372, 2.8307, 2.8242, 
+#       2.8178, 2.8114, 2.8051, 2.7987, 2.7924, 2.7862, 2.7799, 2.7737, 2.7675, 2.7613, 
+#       2.7552, 2.7491, 2.7430, 2.7370, 2.7309, 2.7249, 2.7190, 2.7130, 2.7071, 2.7012, 
+#       2.6953, 2.6895, 2.6836, 2.6778, 2.6721, 2.6663, 2.6606, 2.6549, 2.6492, 2.6436, 
+#       2.6380, 2.6324, 2.6268, 2.6212, 2.6157, 2.6102, 2.6047, 2.5992, 2.5938, 2.5884, 
+#       2.5830, 2.5776, 2.5723, 2.5670, 2.5617, 2.5564];
+
 
 #Arr = [3.542, 3.493, 3.444, 3.397, 3.351, 3.306, 3.263, 3.22, 3.179, 3.139, 
 #       3.1, 3.061, 3.024, 2.988, 2.952, 2.917, 2.883, 2.85, 2.818, 2.786, 2.755, 
@@ -94,7 +96,7 @@ Queue 1
 #       2.9520, 2.8834, 2.8178, 2.7552, 2.6953, 2.6380, 2.5830, 2.5303, 2.4797, 2.4311, 2.3843, 2.3393, 
 #       2.2960, 2.2543, 2.2140, 2.1752];
 
-#Arr1 = np.linspace(Initial,Final,num=waveNUM)
+#Arr = np.linspace(Initial,Final,num=waveNUM)
 #pauser = 1;
 #for q in range(0,len(Arr)):
 
@@ -106,34 +108,37 @@ Queue 1
 ################################################################
 
 #initial absorption length
-#AbsIN = 0.1
+AbsIN = 0.1
 
 #final absorption length
-#AbsFI = 12
+AbsFI = 20
 
 #total number of jobs being submitted 
-#jobNUM = 1000
+jobNUM = 1000
 
 #array that contains the different abs lengths being tested                          
-#Arr = np.linspace(AbsIN,AbsFI,num=jobNUM)
+Arr = np.linspace(AbsIN,AbsFI,num=jobNUM)
 
 #Fill array with random numbers between 0 and 100,000 to be used as random seeds
-ArrRand = np.random.randint(1000000, size=200)
+#ArrRand = np.random.randint(1000000, size=200)
 
 #range to loop over
-myrange = 100
+#myrange = 100
 
 #starting seed 
-startingseed1 = 98110
-startingseed2 = 72722
+#startingseed1 = 98110
+#startingseed2 = 72722
 
 
 pauser = 1;
-for q in range(myrange):
-#for q in range(0,len(Arr)):
+#for q in range(myrange):
+for q in range(0,len(Arr)):
     
-    if (pauser % 30 == 0):
-        sleep(3600);
+    if (pauser % 1 == 0 and pauser !=1):
+        sleep(15);
+
+    if (pauser % 15 == 0 and pauser !=1):
+        sleep(60);
 
     pauser = pauser + 1; 
     # Creating new file                                                              
@@ -144,17 +149,17 @@ for q in range(myrange):
         filedata = file.read()
 
     # Replacing the target string
-        a = str(startingseed1)
-        b = str(ArrRand[2*q])
-        k = str(startingseed2)
-        l = str(ArrRand[2*q+1])
-        #j = str(Arr[q])
-    #i = str(Initial)
-        #i = str(AbsIN)
+        #a = str(startingseed1)
+        #b = str(ArrRand[2*q])
+        #k = str(startingseed2)
+        #l = str(ArrRand[2*q+1])
+        j = str(Arr[q])
+        #i = str(Initial)
+        i = str(AbsIN)
     
-        #filedata = filedata.replace(i, j)
-        filedata = filedata.replace(k,l)
-        filedata = filedata.replace(a,b)
+        filedata = filedata.replace(i, j)
+        #filedata = filedata.replace(k,l)
+        #filedata = filedata.replace(a,b)
 
     # Writing out the new file                                                       
     with open('photest' '%s' '.mac' % q, 'w') as file:
