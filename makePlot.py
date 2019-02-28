@@ -2,108 +2,156 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-plt.rcParams.update({'font.size': 20})
+plt.rcParams.update({'font.size': 18})
 
 
 
 #Reads in file
-df       = pd.read_csv("Absorption_Unir_Samples.csv", sep=",")
-Waves    = df.Wavelength
+df       = pd.read_csv("EJ260.csv", sep=",")
+Waves    = df.Waves
 #Mu_eff   = df.MuEffective
-Andres_1 = df.T_andres_1
-Andres_2 = df.T_andres_2
-Andres2_1 = df.T_andres2_1
-Andres2_2 = df.T_andres2_2
-Andres3_1 = df.T_andres3_1
-Andres3_2 = df.T_andres3_2
-Andres4_1 = df.T_andres4_1
-Andres4_2 = df.T_andres4_2
-Kak_1    = df.T_kak_1
-Kak_2    = df.T_kak_2
-Kak2_1   = df.T_kak2_1
-Kak2_2   = df.T_kak2_2
-Kak3_1   = df.T_kak3_1
-Kak3_2   = df.T_kak3_2
-Avi_1    = df.T_avi_1
-Avi_2    = df.T_avi_2
-Avi2_1    = df.T_avi2_1
-Avi2_2    = df.T_avi2_2
-Avi3_1    = df.T_avi3_1
-Avi3_2    = df.T_avi3_2
+Avi_a    = df.Avi_a
+Avi_b    = df.Avi_b
+Avi_c    = df.Avi_c
+Avi_d    = df.Avi_d
 
-Andres1 = np.mean( np.array([ Andres_1, Andres_2 ]), axis=0 ) # set V1, 0 days aft
-Andres2 = np.mean( np.array([ Andres2_1, Andres2_2 ]), axis=0 )# set V3, 14 days aft
-Andres3 = np.mean( np.array([ Andres3_1, Andres3_2 ]), axis=0 ) #set V3, 28 days aft.
-Andres4 = np.mean( np.array([ Andres4_1, Andres4_2 ]), axis=0 )# set V3, 159 days aft.
-Kak1   = np.mean( np.array([ Kak_1, Kak_2 ]), axis=0 ) #V1, 14 days aft
-Kak2   = np.mean( np.array([ Kak2_1, Kak2_2 ]), axis=0 )#V1, 28 days
-Kak3   = np.mean( np.array([ Kak3_1, Kak3_2 ]), axis=0 )#V3, 2 days
-Avi1   = np.mean( np.array([ Avi_1, Avi_2 ]), axis=0 )#V1, 468
-Avi2   = np.mean( np.array([ Avi2_1, Avi2_2 ]), axis=0 )#V3, 154
-Avi3   = np.mean( np.array([ Avi3_1, Avi3_2 ]), axis=0 )#V3, 410
+Duan_a    = df.Duan_a
+Duan_b    = df.Duan_b
+Duan_c    = df.Duan_c
+Duan_d    = df.Duan_d
 
-stdevT = [0]*len(Waves)
-stdV1  = [0]*len(Waves)
-stdV3  = [0]*len(Waves)
-for i in range(len(Waves)):
-    pointV1 = []
-    pointV3 = []
-    pointV1.append(Andres1[i])
-    pointV3.append(Andres2[i])
-    pointV3.append(Andres3[i])
-    pointV3.append(Andres4[i])
-    pointV1.append(Kak1[i])
-    pointV1.append(Kak2[i])
-    pointV3.append(Kak3[i])
-    pointV1.append(Avi1[i])
-    pointV3.append(Avi2[i])
-    pointV3.append(Avi3[i])
-    point = pointV1 + pointV3
-    stdevT[i] = np.std(point)
-    stdV1[i]  = np.std(pointV1)
-    stdV3[i]  = np.std(pointV3)
+Tim_a    = df.Tim_a
+Tim_b    = df.Tim_b
+Tim_c    = df.Tim_c
+Tim_d    = df.Tim_d
 
-#Mu = list(data.Mu)
-#E  = list(data.E)
+Avi2_a    = df.Avi2_a
+Avi2_b    = df.Avi2_b
+Avi2_c    = df.Avi2_c
+Avi2_d    = df.Avi2_d
 
+Avi3_a    = df.Avi3_a
+Avi3_b    = df.Avi3_b
+Avi3_c    = df.Avi3_c
+Avi3_d    = df.Avi3_d
+
+Kak_a     = df.Kak_a
+Kak_b     = df.Kak_b
+Kak_c     = df.Kak_c
+Kak_d     = df.Kak_d
+
+#Andres1 = np.mean( np.array([ Andres_1, Andres_2 ]), axis=0 ) # set V1, 0 days aft
+#Andres2 = np.mean( np.array([ Andres2_1, Andres2_2 ]), axis=0 )# set V3, 14 days aft
+#Andres3 = np.mean( np.array([ Andres3_1, Andres3_2 ]), axis=0 ) #set V3, 28 days aft.
+#Andres4 = np.mean( np.array([ Andres4_1, Andres4_2 ]), axis=0 )# set V3, 159 days aft.
+#Kak1   = np.mean( np.array([ Kak_1, Kak_2 ]), axis=0 ) #V1, 14 days aft
+#Kak2   = np.mean( np.array([ Kak2_1, Kak2_2 ]), axis=0 )#V1, 28 days
+#Kak3   = np.mean( np.array([ Kak3_1, Kak3_2 ]), axis=0 )#V3, 2 days
+#Avi1   = np.mean( np.array([ Avi_1, Avi_2 ]), axis=0 )#V1, 468
+#Avi2   = np.mean( np.array([ Avi2_1, Avi2_2 ]), axis=0 )#V3, 154
+#Avi3   = np.mean( np.array([ Avi3_1, Avi3_2 ]), axis=0 )#V3, 410
+
+#stdevT = [0]*len(Waves)
+#stdV1  = [0]*len(Waves)
+#stdV3  = [0]*len(Waves)
+#for i in range(len(Waves)):
+#    pointV1 = []
+#    pointV3 = []
+#    pointV1.append(Andres1[i])
+#    pointV3.append(Andres2[i])
+#    pointV3.append(Andres3[i])
+#    pointV3.append(Andres4[i])
+#    pointV1.append(Kak1[i])
+#    pointV1.append(Kak2[i])
+#    pointV3.append(Kak3[i])
+#    pointV1.append(Avi1[i])
+#    pointV3.append(Avi2[i])
+#    pointV3.append(Avi3[i])
+#    point = pointV1 + pointV3
+#    stdevT[i] = np.std(point)
+#    stdV1[i]  = np.std(pointV1)
+#    stdV3[i]  = np.std(pointV3)
+
+#Mu = list(df.Mu)
+#E  = list(df.E)
+#Eff = np.asarray(E)
 #Muu = np.asarray(Mu)
+
+#Diff = [0]*len(Mu)
+#Abslength = [0]*len(Mu)
 
 #def E_fit(m):
 #    return np.exp(-0.1037-10.03*m)
 
+#for i in range(len(Mu)):
+#    Abslength[i] = (1 / Mu[i])/10
+#    Diff[i] = np.abs(100*(E_fit(Mu[i]) - Eff[i])/(E_fit(Mu[i]) + Eff[i])/2)
+
+err = 0.4
+
 plt.figure(1)
 #plt.plot(Waves,Mu_eff)
-plt.subplot(211)
-plt.plot(Waves, Andres1,'g',label='Andres (set V1)')
-plt.plot(Waves, Andres2,'g', linestyle='--', label='Andres (set V3) x 3')
-plt.plot(Waves, Andres3,'g', linestyle='--')
-plt.plot(Waves, Andres4,'g', linestyle='-.')
-plt.plot(Waves, Kak1,'r', label='Kak (set V1) x 2')
-plt.plot(Waves, Kak2,'r')
-plt.plot(Waves, Kak3,'r', linestyle='--', label='Kak (set V3)')
-plt.plot(Waves, Avi1,'b', label='Avi (set V1)')
-plt.plot(Waves, Avi2,'b', linestyle='--', label='Avi (set V3) x 2')
-plt.plot(Waves, Avi3,'b', linestyle='--')
-plt.ylim(86,91)
-plt.xlim(400,600)
-#plt.plot(Muu, E,'b.', label='Simulated Efficiency')
-#plt.plot(Muu,E_fit(Muu),'r-',dashes=[6,2], label='$e^{(-0.1037-10.03)\mu}$')
+plt.subplot(221)
+plt.plot(Waves, Kak_a,'g',label='March 2017')
+plt.plot(Waves, Avi3_a,'b',label='April 2018')
+plt.plot(Waves, Avi2_a,'r',label='June 2018')
+plt.plot(Waves, Avi_a, 'm',linestyle='dashed', label='February 2019 (After repair)')
+plt.legend(loc='upper right', ncol=2)
+plt.errorbar(Waves,Avi_a, yerr = err, errorevery=15, capsize = 3, ecolor= 'm', fmt = 'm',ls='-.') 
+plt.errorbar(Waves,Avi3_a, yerr = err, errorevery=15, capsize = 3, ecolor= 'b', fmt = 'b') 
 plt.xlabel('Wavelength ($nm$)')
-plt.ylabel('Transmission Efficiency (%)')
-plt.legend(loc='lower right', ncol = 3)
-plt.title('Estimation of Systematic Uncertainty in Absorption Measurements \n(Data from set V1 and V3: 10 mm Unirradiated Sample)')
+plt.ylabel('Transmission Efficiency')
+plt.ylim(84,90) 
+plt.xlim(500,600)
+#plt.ylim(1e-06,1e02)
+plt.title('EJ260-1X1P-N1 Reference Measurements: Side A')
 
+plt.subplot(222)
+#plt.plot([], [], ' ', label="Repaired Febuary 2019")
+plt.plot(Waves, Kak_b,'g',label='March 2017')
+plt.plot(Waves, Avi3_b,'b',label='April 2018')
+plt.plot(Waves, Avi2_b,'r',label='June 2018')
+plt.plot(Waves, Avi_b, 'm',linestyle='dashed', label='February 2019 (After repair)')
+plt.legend(loc='upper right',ncol = 2)
+plt.errorbar(Waves,Avi_b, yerr = err, errorevery=15, capsize = 3, ecolor= 'm', fmt = 'm',ls='-.') 
+plt.errorbar(Waves,Avi3_b, yerr = err, errorevery=15, capsize = 3, ecolor= 'b', fmt = 'b') 
+plt.xlabel('Wavelength ($nm$)')
+plt.ylabel('Transmission Efficiency')
+plt.ylim(82,88) 
+plt.xlim(500,600)
+#plt.ylim(1e-06,1e02)
+plt.title('EJ260-1X1P-N1 Reference Measurements: Side B')
 
-plt.subplot(212)
-plt.plot(Waves, stdevT,'c',label='General Standard Deviation')
-#plt.plot(Waves, stdV1,'m',label='set V1 Standard Deviation')
-#plt.plot(Waves, stdV3,'y',label='set V3 Standard Deviation')
-#plt.plot(Waves, Kak1,'g',label='Kak 3/16/17')
-#plt.plot(Waves, Kak2,'r',label='Kak 3/30/17')
-#plt.plot(Waves, Avi,'b',label='Avi 6/14/18')
-plt.xlabel('Wavelength($nm$)')
-plt.ylabel('Standard Deviation in Transmission Efficiency (%)')
-plt.legend(loc='upper right')
-plt.xlim(400,600)
-#plt.ylim(85,91)
+plt.subplot(223)
+#plt.plot([], [], ' ', label="Repaired Febuary 2019")
+plt.plot(Waves, Kak_c,'g',label='March 2017')
+plt.plot(Waves, Avi3_c,'b',label='April 2018')
+plt.plot(Waves, Avi2_c,'r',label='June 2018')
+plt.plot(Waves, Avi_c, 'm',linestyle='dashed', label='February 2019 (After repair)')
+plt.legend(loc='upper right',ncol = 2)
+plt.errorbar(Waves,Avi_c, yerr = err, errorevery=15, capsize = 3, ecolor= 'm', fmt = 'm',ls='-.') 
+plt.errorbar(Waves,Avi3_c, yerr = err, errorevery=15, capsize = 3, ecolor= 'b', fmt = 'b') 
+plt.xlabel('Wavelength ($nm$)')
+plt.ylabel('Transmission Efficiency')
+plt.ylim(84,90) 
+plt.xlim(500,600)
+#plt.ylim(1e-06,1e02)
+plt.title('EJ260-1X1P-N1 Reference Measurements: Side C')
+
+plt.subplot(224)
+#plt.plot([], [], ' ', label="Repaired Febuary 2019")
+plt.plot(Waves, Kak_d,'g',label='March 2017')
+plt.plot(Waves, Avi3_d,'b',label='April 2018')
+plt.plot(Waves, Avi2_d,'r',label='June 2018')
+plt.plot(Waves, Avi_d, 'm',linestyle='dashed', label='February 2019 (After repair)')
+plt.legend(loc='upper right',ncol = 2)
+plt.errorbar(Waves,Avi_d, yerr = err, errorevery=15, capsize = 3, ecolor= 'm', fmt = 'm',ls='-.') 
+plt.errorbar(Waves,Avi3_d, yerr = err, errorevery=15, capsize = 3, ecolor= 'b', fmt = 'b') 
+plt.xlabel('Wavelength ($nm$)')
+plt.ylabel('Transmission Efficiency')
+plt.ylim(82,88) 
+plt.xlim(500,600)
+#plt.ylim(1e-06,1e02)
+plt.title('EJ260-1X1P-N1 Reference Measurements: Side D')
+
 plt.show()
