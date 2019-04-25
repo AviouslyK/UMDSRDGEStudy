@@ -1,8 +1,10 @@
 /tracking/verbose 0
+/random/setSeeds 98110 72722
 /gps/particle opticalphoton
-/gps/energy 2.95 eV
+/gps/energy 3.0996 eV
 /gps/position 0 2.5 0 cm
 /gps/direction 0 -1 0
-/LYSim/SetInducedAbsLength 0.5 cm
+#/LYSim/SetInducedAbsLength 0.01 cm
+/LYSim/SetPhotonEnergy 3.0996 eV
 /LYSim/Update
 /run/beamOn 100000
