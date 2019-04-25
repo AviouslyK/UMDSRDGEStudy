@@ -60,6 +60,9 @@ public:
     void SetInducedMuTile ( G4double value ) { inducedMuTile = value; }
     void SetInducedMuFiber ( G4double value ) { inducedMuFiber = value; }
 
+    void SetPhotonEnergy ( G4double value ) { Photon_Energy = value; }
+
+
 private:
     //! Private construtor: part of singleton pattern
     Analysis();
@@ -87,6 +90,7 @@ private:
     G4double tileAbsLength;
     G4double inducedMuTile;
     G4double inducedMuFiber;
+    G4double Photon_Energy;
 };
 
 #endif /* ANALYSIS_HH_ */
