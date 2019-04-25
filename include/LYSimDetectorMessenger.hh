@@ -53,6 +53,7 @@ private:
     G4UIcmdWithADoubleAndUnit*  SetTileAbsLengthCmd;
     G4UIcmdWithADoubleAndUnit*  SetInducedAbsLengthCmd;
     G4UIcmdWithADoubleAndUnit*  SetInducedAbsLengthFiberCmd;
+    G4UIcmdWithADoubleAndUnit*  SetPhotonEnergyCmd;
 
 };
 
