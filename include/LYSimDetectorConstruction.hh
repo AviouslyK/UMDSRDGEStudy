@@ -58,6 +58,10 @@ public:
     void  SetTileAbsLength (G4double iAbsLength) {tileAbsLength = iAbsLength;}
     G4double GetTileAbsLength() {return tileAbsLength;}
 
+      //New
+    void SetPhotonEnergy (G4double iPhotonEnergy) {Photon_Energy = iPhotonEnergy;}
+    G4double GetPhotonEnergy() {return Photon_Energy;}
+
     void  SetInducedMuTile(G4double value) {inducedMuTile = value;}
     G4double GetInducedMuTile() {return inducedMuTile;}
 
@@ -206,7 +210,10 @@ private:
     G4double tileAbsLength;
     G4double inducedMuTile; //Radiation-induced absorption coefficient (cm^-1) in tile
     G4double inducedMuFiber; //Radiation-induced absorption coefficient (cm^-1) in fiber	
-
+    
+    //New
+    G4double Photon_Energy; // energy of incident photon in eV
+   
     //Tile geometry parameters
     G4double angle1;
     G4double angle2;
