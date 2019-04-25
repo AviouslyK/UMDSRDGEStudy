@@ -87,12 +87,14 @@ void Analysis::EndOfEvent(const G4Event* anEvent)
 
         if (anEvent->GetEventID()%100 == 0 && nHits > 0) {
             if (i==0) G4cout << "[LYSim] Number of hits in PMT: " << nHits << G4endl;
-            G4cout << "[LYSim] hit[" << i << "] in PMT energy = "
+            /*
+	      G4cout << "[LYSim] hit[" << i << "] in PMT energy = "
                    << std::setprecision(4)
                    << std::fixed
                    << std::setw(6) << HitEnergy/eV << " [eV]; time = "
                    << std::setw(6) << HitTime/ns << " [ns]"
                    << G4endl << std::resetiosflags(std::ios::fixed);;
+	    */
         }
     }
     man->FillH1(2,EventPhotonCount);//Photon hits per event
@@ -106,23 +108,29 @@ void Analysis::PrepareNewRun(const G4Run*)
     PhotonCount = 0;
     HitCount = 0;
 }
-
-
 void Analysis::EndOfRun(const G4Run*)
 {
     outputfile.open(fOutputFileName.c_str(), ofstream::out | ofstream::app);
     G4double detEff = (PhotonCount > 0 ? (G4double)HitCount/(G4double)PhotonCount: 0.0);
+    G4double photonWave = 1239.84197/Photon_Energy;
     G4cout << "Efficiency in this run is " << detEff  << G4endl;
     if (outputfile.is_open())
     {
-        outputfile << "#Mu_tile [cm^-1]\tMu_fiber [cm^-1]\tEfficiency" << G4endl;
-        outputfile << inducedMuTile << "\t" << inducedMuFiber << "\t" << detEff << G4endl;
+      outputfile << "Energy [eV]\tWavelength [nm]\tEfficiency" << G4endl;
+      outputfile << Photon_Energy << "\t" << photonWave << "\t" << detEff << G4endl;
+    
+      //outputfile << "#Mu_tile [cm^-1]\tEfficiency" << G4endl;
+      //outputfile << inducedMuTile << "\t" << detEff << G4endl;
     }
     else
     {
         G4cout << "Output file not open" << G4endl;
-        G4cout << "#Mu_tile [cm^-1]\tMu_fiber [cm^-1]\tEfficiency" << G4endl;
-        G4cout << inducedMuTile << "\t" << inducedMuFiber << "\t" << detEff << G4endl;
+	G4cout << "Energy [eV]\tWavelength [nm]\tEfficiency" << G4endl;
+	G4cout <<  Photon_Energy << "\t" << photonWave << "\t" << detEff << G4endl;
+
+          
+	//G4cout << "#Mu_tile [cm^-1]\tMu_fiber [cm^-1]\tEfficiency" << G4endl;
+        //G4cout << inducedMuTile << "\t" << inducedMuFiber << "\t" << detEff << G4endl;
     }
     outputfile.close();
 
@@ -130,5 +138,4 @@ void Analysis::EndOfRun(const G4Run*)
     G4AnalysisManager* man = G4AnalysisManager::Instance();
     man->Write();
     man->CloseFile();
-
 }
