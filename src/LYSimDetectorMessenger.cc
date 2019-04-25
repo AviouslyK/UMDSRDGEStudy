@@ -143,6 +143,14 @@ LYSimDetectorMessenger::LYSimDetectorMessenger(LYSimDetectorConstruction * Det)
     SetInducedAbsLengthCmd->SetRange("InducedMuTile>=0.");
     SetInducedAbsLengthCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
 
+    SetPhotonEnergyCmd = new G4UIcmdWithADoubleAndUnit("/LYSim/SetPhotonEnergy", this);
+    SetPhotonEnergyCmd->SetGuidance("Set the photon energy (eV)");
+    SetPhotonEnergyCmd->SetParameterName("Photon_Energy",false);
+    SetPhotonEnergyCmd->SetUnitCategory("Energy");
+    SetPhotonEnergyCmd->SetDefaultUnit("eV");
+    SetPhotonEnergyCmd->SetRange("Photon_Energy>=0.");
+    SetPhotonEnergyCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
+
     SetInducedAbsLengthFiberCmd = new G4UIcmdWithADoubleAndUnit("/LYSim/SetInducedAbsLengthFiber", this);
     SetInducedAbsLengthFiberCmd->SetGuidance("Set the induced absorption length for fiber (cm)");
     SetInducedAbsLengthFiberCmd->SetParameterName("InducedMuFiber",false);
@@ -250,14 +258,14 @@ void LYSimDetectorMessenger::SetNewValue(G4UIcommand* command,G4String val)
             SetTileAbsLength(G4UIcmdWithADoubleAndUnit::GetNewDoubleValue(val));
     }
     else if( command == SetInducedAbsLengthCmd ) {
-        G4double value = G4UIcmdWithADouble::GetNewDoubleValueAndUnit(val);
+        G4double value = G4UIcmdWithADoubleAndUnit::GetNewDoubleValue(val);
         Detector->
             SetInducedMuTile(1/value);
         analysis->
             SetInducedMuTile(1/value);
     }
     else if( command == SetInducedAbsLengthFiberCmd ) {
-        G4double value = G4UIcmdWithADouble::GetNewDoubleValueAndUnit(val);
+        G4double value = G4UIcmdWithADoubleAndUnit::GetNewDoubleValue(val);
         Detector->
             SetInducedMuFiber(1/value);
         analysis->
